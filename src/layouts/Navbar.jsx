@@ -55,12 +55,12 @@ const Navbar = () => {
 					id="nav-buttons"
 					className="flex items-center gap-x-2 text-lg font-semibold"
 				>
-					<NavLink to="/signup">
+					<NavLink to="/login">
 						<button
 							type="button"
 							className="px-4 py-2.5 bg-primary-light text-light rounded-lg hover:bg-primary cursor-pointer"
 						>
-							Sign Up
+							Login
 						</button>
 					</NavLink>
 					<NavLink to="/support-contact">
