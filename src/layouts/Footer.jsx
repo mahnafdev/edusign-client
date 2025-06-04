@@ -1,4 +1,13 @@
-import { FaLocationDot, FaMessage, FaPhone } from "react-icons/fa6";
+import {
+	FaFacebookF,
+	FaGithubAlt,
+	FaLocationDot,
+	FaMessage,
+	FaPaperPlane,
+	FaPhone,
+	FaTelegram,
+	FaYoutube,
+} from "react-icons/fa6";
 import Logo from "../assets/logo.png";
 import { Link } from "react-router";
 
@@ -114,6 +123,42 @@ const Footer = () => {
 							</Link>
 						</li>
 					</ul>
+				</div>
+				{/* Socials */}
+				<div className="space-y-4">
+					<h5 className="text-lg font-semibold text-primary-background-dark dark:text-primary-background-light">
+						Follow Us
+					</h5>
+					<div className="flex gap-x-2">
+						<a
+							href="https://github.com/ninjaquasar"
+							title="Follow - GitHub"
+							className="p-2 bg-blue-300 rounded-md hover:scale-110 transition-transform"
+						>
+							<FaGithubAlt size={20} />
+						</a>
+						<a
+							href="https://youtube.com/@ninjaquasar"
+							title="Subscribe - YouTube"
+							className="p-2 bg-blue-300 rounded-md hover:scale-110 transition-transform"
+						>
+							<FaYoutube size={20} />
+						</a>
+						<a
+							href="https://facebook.com/ninjaquasar"
+							title="Follow - Facebook"
+							className="p-2 bg-blue-300 rounded-md hover:scale-110 transition-transform"
+						>
+							<FaFacebookF size={20} />
+						</a>
+						<a
+							href="https://facebook.com/ninjaquasar"
+							title="Message - Telegram"
+							className="p-2 bg-blue-300 rounded-md hover:scale-110 transition-transform"
+						>
+							<FaPaperPlane size={20} />
+						</a>
+					</div>
 				</div>
 			</div>
 			{/* Copyright text */}
