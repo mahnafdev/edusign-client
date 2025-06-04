@@ -15,12 +15,12 @@ const Accordion = ({
 				<h4 className="text-2xl font-semibold">{title}</h4>
 				<FaPlus
 					size={20}
-					className={`fill-primary ${
+					className={`fill-primary dark:fill-primary-light ${
 						isOpen ? "rotate-135" : "rotate-0"
 					} transition-transform duration-200`}
 				/>
 			</div>
-			{isOpen ? <p className="text-lg">{description}</p> : null}
+			{isOpen ? <p className="text-lg max-w-15/16">{description}</p> : null}
 		</div>
 	);
 };
