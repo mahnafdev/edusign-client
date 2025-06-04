@@ -8,6 +8,7 @@ const Accordion = ({
 	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div className="bg-primary-background-light dark:bg-primary-background-dark px-8 py-6 rounded-2xl space-y-6">
+			{/* Title and Icon */}
 			<div
 				className="flex items-center justify-between cursor-pointer"
 				onClick={() => setIsOpen(!isOpen)}
@@ -20,6 +21,7 @@ const Accordion = ({
 					} transition-transform duration-200`}
 				/>
 			</div>
+			{/* Description */}
 			{isOpen ? <p className="text-lg max-w-15/16">{description}</p> : null}
 		</div>
 	);

@@ -6,10 +6,12 @@ const FAQ = () => {
 			id="faq"
 			className="max-w-8xl mx-auto mt-20 space-y-12"
 		>
+			{/* Section Heading */}
 			<h2 className="text-4xl font-bold text-center">
 				Frequently Asked{" "}
 				<span className="text-primary-dark dark:text-primary-light">Questions</span>
 			</h2>
+			{/* FAQs List */}
 			<div
 				id="faq-accordions"
 				className="space-y-4"
