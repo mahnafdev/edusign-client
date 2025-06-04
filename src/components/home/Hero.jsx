@@ -13,8 +13,8 @@ const Hero = () => {
 				className="flex items-center gap-x-24 max-w-5/6 mx-auto"
 			>
 				{/* Slogan Heading at the left-side */}
-				<h1 className="text-5xl font-bold leading-snug">
-					The Smarter Way to Solve and Learn Together.
+				<h1 className="text-5xl font-bold leading-snug bg-gradient-to-br from-blue-400 to-blue-700 bg-clip-text text-transparent">
+					The Smarter Way to Solve and Learn Together
 				</h1>
 				{/* Subtext & Call-To-Action at the right-side */}
 				<div className="space-y-4">

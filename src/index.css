@@ -9,7 +9,7 @@
 	--color-primary: #0071fc;
 	--color-primary-light: var(--color-blue-500);
 	--color-primary-dark: var(--color-blue-600);
-	--color-primary-background-light: var(--color-blue-50);
+	--color-primary-background-light: var(--color-blue-100);
 	--color-primary-background-dark: var(--color-blue-950);
 	--color-primary-border: var(--color-blue-200);
 	--container-8xl: 96rem;
