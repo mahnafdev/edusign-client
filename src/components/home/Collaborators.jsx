@@ -47,7 +47,7 @@ const Collaborators = () => {
 	return (
 		<section
 			id="collaborators"
-			className="max-w-7xl mx-auto mt-8 grid grid-cols-2 place-items-center gap-x-8"
+			className="max-w-7xl mx-auto mt-12 grid grid-cols-2 place-items-center gap-x-8"
 		>
 			{/* Section Heading */}
 			<h3 className="text-3xl font-bold">

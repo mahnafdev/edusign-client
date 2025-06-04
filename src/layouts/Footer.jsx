@@ -133,28 +133,28 @@ const Footer = () => {
 						<a
 							href="https://github.com/ninjaquasar"
 							title="Follow - GitHub"
-							className="p-2 bg-blue-300 rounded-md hover:scale-110 transition-transform"
+							className="p-2 bg-blue-300 dark:bg-blue-500 rounded-md hover:scale-110 transition-transform"
 						>
 							<FaGithubAlt size={20} />
 						</a>
 						<a
 							href="https://youtube.com/@ninjaquasar"
 							title="Subscribe - YouTube"
-							className="p-2 bg-blue-300 rounded-md hover:scale-110 transition-transform"
+							className="p-2 bg-blue-300 dark:bg-blue-500 rounded-md hover:scale-110 transition-transform"
 						>
 							<FaYoutube size={20} />
 						</a>
 						<a
 							href="https://facebook.com/ninjaquasar"
 							title="Follow - Facebook"
-							className="p-2 bg-blue-300 rounded-md hover:scale-110 transition-transform"
+							className="p-2 bg-blue-300 dark:bg-blue-500 rounded-md hover:scale-110 transition-transform"
 						>
 							<FaFacebookF size={20} />
 						</a>
 						<a
-							href="https://facebook.com/ninjaquasar"
+							href="https://t.me/ninjaquasar"
 							title="Message - Telegram"
-							className="p-2 bg-blue-300 rounded-md hover:scale-110 transition-transform"
+							className="p-2 bg-blue-300 dark:bg-blue-500 rounded-md hover:scale-110 transition-transform"
 						>
 							<FaPaperPlane size={20} />
 						</a>
