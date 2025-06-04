@@ -20,7 +20,7 @@ const Hero = () => {
 				<div className="space-y-4">
 					<p className="leading-relaxed">
 						Sign out from the exhausted education system. Sign in to the smarter one
-						by EduSign. Get smarter with our Assignment-based group-study system.
+						by EduSign. Get smarter with our Assignment-based group-study platform.
 					</p>
 					<Link
 						to="/assignments"

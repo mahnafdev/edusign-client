@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import Logo from "../assets/logo.png";
+import ToggleTheme from "../components/shared/ToggleTheme";
 
 const Navbar = () => {
 	return (
@@ -71,6 +72,7 @@ const Navbar = () => {
 							Support
 						</button>
 					</NavLink>
+					<ToggleTheme buttonClasses="ml-4" />
 				</div>
 			</div>
 		</nav>
