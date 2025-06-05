@@ -7,7 +7,12 @@ import { Toaster } from "react-hot-toast";
 const Root = () => {
 	return (
 		<Fragment>
-			<Toaster />
+			<Toaster
+				toastOptions={{
+					position: "top-left",
+					duration: 2500,
+				}}
+			/>
 			<Navbar />
 			<Outlet />
 			<Footer />

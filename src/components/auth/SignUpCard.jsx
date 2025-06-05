@@ -16,17 +16,11 @@ const SignUpCard = () => {
 		signUpUser(data.email, data.password)
 			// Upon success
 			.then((userCredentials) => {
-				toast.success("Created your account successfully!", {
-					position: "top-left",
-					duration: 2500,
-				});
+				toast.success("Created your account successfully!");
 			})
 			// Upon error
 			.catch((error) => {
-				toast.error(`${error.message}`, {
-					position: "top-left",
-					duration: 2500,
-				});
+				toast.error(`${error.message}`);
 			});
 	};
 	return (
