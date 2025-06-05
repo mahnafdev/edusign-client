@@ -1,6 +1,21 @@
 import { Link } from "react-router";
+import useAuthContext from "../../hooks/useAuthContext";
 
 const SignUpCard = () => {
+	const { signUpUser } = useAuthContext();
+	const handleSignUp = (event) => {
+		event.preventDefault();
+		const form = event.target;
+		const formData = new FormData(form);
+		const data = Object.fromEntries(formData.entries());
+		signUpUser(data.email, data.password)
+			.then((userCredentials) => {
+				console.log("Signed Up Successfully");
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	};
 	return (
 		<div className="max-w-xl mx-auto p-8 bg-primary-background-light dark:bg-primary-background-dark rounded-4xl shadow-lg shadow-dark/10 hover:shadow-dark/15 transition-shadow duration-100">
 			{/* Heading */}
@@ -8,7 +23,10 @@ const SignUpCard = () => {
 				Sign Up
 			</h2>
 			{/* Form */}
-			<form className="max-w-5/6 mx-auto space-y-2">
+			<form
+				className="max-w-5/6 mx-auto space-y-2"
+				onSubmit={handleSignUp}
+			>
 				<label className="flex flex-col gap-y-1 text-lg">
 					<span className="font-medium">First Name</span>
 					<input
@@ -16,6 +34,7 @@ const SignUpCard = () => {
 						name="firstName"
 						className="bg-blue-50 p-2 border border-blue-300 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
 						placeholder="Steve"
+						required
 					/>
 				</label>
 				<label className="flex flex-col gap-y-1 text-lg">
@@ -34,15 +53,17 @@ const SignUpCard = () => {
 						name="email"
 						className="bg-blue-50 p-2 border border-blue-300 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
 						placeholder="steve.potter@example.com"
+						required
 					/>
 				</label>
 				<label className="flex flex-col gap-y-1 text-lg">
 					<span className="font-medium">Password</span>
 					<input
-						type="text"
+						type="password"
 						name="password"
 						className="bg-blue-50 p-2 border border-blue-300 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
 						placeholder="********"
+						required
 					/>
 				</label>
 				<div className="text-center mt-6">

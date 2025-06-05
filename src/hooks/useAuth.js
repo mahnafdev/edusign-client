@@ -1,9 +1,22 @@
+import {
+	createUserWithEmailAndPassword,
+	signInWithEmailAndPassword,
+	updateProfile,
+} from "firebase/auth";
+import { auth } from "../../config/firebase.config";
+
 const useAuth = () => {
-	const user = {
-		email: "stevepotter@harryharrington.com",
-		password: "HPSH#HPST",
+	const signUpUser = (email, password) => {
+		return createUserWithEmailAndPassword(auth, email, password);
 	};
-	return { user };
+	const signInUser = (email, password) => {
+		return signInWithEmailAndPassword(auth, email, password);
+	};
+	const updateUserProfile = (displayName, photoURL) => {
+		const newProfile = { displayName, photoURL };
+		return updateProfile(auth.currentUser, newProfile);
+	};
+	return { signUpUser, signInUser, updateUserProfile };
 };
 
 export default useAuth;
