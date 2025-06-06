@@ -10,7 +10,7 @@ const Root = () => {
 			<Toaster
 				toastOptions={{
 					position: "top-left",
-					duration: 2500,
+					duration: 3000,
 				}}
 			/>
 			<Navbar />

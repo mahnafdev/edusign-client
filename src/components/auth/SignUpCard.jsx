@@ -13,16 +13,28 @@ const SignUpCard = () => {
 		const form = event.target;
 		const formData = new FormData(form);
 		const data = Object.fromEntries(formData.entries());
-		// Sign up the user
-		signUpUser(data.email, data.password)
-			// Upon success
-			.then((userCredentials) => {
-				toast.success("Created your account successfully!");
-			})
-			// Upon error
-			.catch((error) => {
-				toast.error(`${error.message}`);
-			});
+		// Verify password
+		const checkLength = /^.{6,}$/;
+		const checkUppercase = /(?=.*[A-Z])/;
+		const checkLowercase = /(?=.*[a-z])/;
+		if (!checkLength.test(data.password))
+			toast.error("Password must be atleast 6 characters long");
+		else if (!checkUppercase.test(data.password))
+			toast.error("Password must include an uppercase letter");
+		else if (!checkLowercase.test(data.password))
+			toast.error("Password must include a lowercase letter");
+		else {
+			// Sign up the user
+			signUpUser(data.email, data.password)
+				// Upon success
+				.then((userCredentials) => {
+					toast.success("Created your account successfully!");
+				})
+				// Upon error
+				.catch((error) => {
+					toast.error(`${error.message}`);
+				});
+		}
 	};
 	return (
 		<div className="max-w-xl mx-auto p-8 bg-primary-background-light dark:bg-[#20202a] rounded-4xl shadow-lg shadow-dark/10 hover:shadow-dark/15 transition-shadow duration-100">
