@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import useAuthContext from "../../hooks/useAuthContext";
 import toast from "react-hot-toast";
+import GoogleSignIn from "./GoogleSignIn";
 
 const SignInCard = () => {
 	const { signInUser } = useAuthContext();
@@ -55,12 +56,19 @@ const SignInCard = () => {
 				<div className="text-center mt-6">
 					<button
 						type="submit"
-						className="w-full py-3 text-xl text-light font-medium bg-primary hover:bg-primary-dark rounded-xl cursor-pointer"
+						className="w-full py-2 text-xl text-light font-medium bg-primary hover:bg-primary-dark rounded-xl cursor-pointer"
 					>
 						Sign In
 					</button>
 				</div>
 			</form>
+			<div className="relative my-8 max-w-5/6 mx-auto">
+				<div className="border border-[#c4c4c4] dark:border-neutral-600 border-dashed" />
+				<span className="absolute -top-3 left-1/2 -translate-x-1/2 font-medium px-2 bg-primary-background-light dark:bg-[#20202a] text-neutral-500">
+					OR
+				</span>
+			</div>
+			<GoogleSignIn />
 			<p className="font-medium text-center mt-6">
 				New student here?{" "}
 				<Link
