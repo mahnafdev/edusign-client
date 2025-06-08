@@ -42,13 +42,19 @@ const Navbar = () => {
 						to="/assignments"
 						className="px-4 py-2 rounded-full hover:bg-primary hover:text-light transition-colors duration-100"
 					>
-						All Assignments
+						Assignments
 					</NavLink>
 					<NavLink
-						to="/assignments/pending"
+						to="/how-to"
 						className="px-4 py-2 rounded-full hover:bg-primary hover:text-light transition-colors duration-100"
 					>
-						Pending Assignments
+						Guide
+					</NavLink>
+					<NavLink
+						to="/blogs"
+						className="px-4 py-2 rounded-full hover:bg-primary hover:text-light transition-colors duration-100"
+					>
+						Blogs
 					</NavLink>
 				</div>
 				{/* Buttons */}
