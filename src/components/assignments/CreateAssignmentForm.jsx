@@ -64,7 +64,7 @@ const CreateAssignmentForm = () => {
 						type="number"
 						name="marks"
 						min={5}
-						max={1000}
+						max={100}
 						className="w-40 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
 						placeholder="100"
 						required

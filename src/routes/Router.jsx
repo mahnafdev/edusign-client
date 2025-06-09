@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import SignUpPage from "../pages/SignUpPage";
 import SignInPage from "../pages/SignInPage";
 import CreateAssignment from "../pages/CreateAssignment";
+import ViewAssignments from "../pages/ViewAssignments";
 
 const Router = createBrowserRouter([
 	{
@@ -21,6 +22,10 @@ const Router = createBrowserRouter([
 			{
 				path: "/signin",
 				Component: SignInPage,
+			},
+			{
+				path: "/assignments",
+				Component: ViewAssignments,
 			},
 			{
 				path: "/assignments/create",
