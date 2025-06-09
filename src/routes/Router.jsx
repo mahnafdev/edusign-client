@@ -3,6 +3,7 @@ import Root from "../layouts/Root";
 import Home from "../pages/Home";
 import SignUpPage from "../pages/SignUpPage";
 import SignInPage from "../pages/SignInPage";
+import CreateAssignment from "../pages/CreateAssignment";
 
 const Router = createBrowserRouter([
 	{
@@ -20,6 +21,10 @@ const Router = createBrowserRouter([
 			{
 				path: "/signin",
 				Component: SignInPage,
+			},
+			{
+				path: "/assignments/create",
+				Component: CreateAssignment,
 			},
 		],
 	},
