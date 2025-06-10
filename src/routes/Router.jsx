@@ -5,6 +5,7 @@ import SignUpPage from "../pages/SignUpPage";
 import SignInPage from "../pages/SignInPage";
 import CreateAssignment from "../pages/CreateAssignment";
 import ViewAssignments from "../pages/ViewAssignments";
+import AssignmentDetails from "../pages/AssignmentDetails";
 
 const Router = createBrowserRouter([
 	{
@@ -30,6 +31,10 @@ const Router = createBrowserRouter([
 			{
 				path: "/assignments/create",
 				Component: CreateAssignment,
+			},
+			{
+				path: "/assignments/details/:id",
+				Component: AssignmentDetails,
 			},
 		],
 	},

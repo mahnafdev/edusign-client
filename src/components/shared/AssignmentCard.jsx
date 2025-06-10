@@ -1,7 +1,8 @@
 import { FaCalendar, FaEye, FaPenToSquare, FaStar, FaTrashCan } from "react-icons/fa6";
+import { NavLink } from "react-router";
 
 const AssignmentCard = ({ children: assignment }) => {
-	const { thumbnail, title, description, total_marks, due_date } = assignment;
+	const { id, thumbnail, title, description, total_marks, due_date } = assignment;
 	return (
 		<div className="bg-primary-background-light dark:bg-[#20202a] border border-neutral-300 dark:border-neutral-700 rounded-3xl grid grid-cols-6 items-center gap-8">
 			{/* Thumbnail Image */}
@@ -42,7 +43,9 @@ const AssignmentCard = ({ children: assignment }) => {
 				<p className="text-lg line-clamp-1">{description}</p>
 				{/* Actions */}
 				<div className="w-fit mt-6 px-1 flex items-center mx-auto gap-x-1 border border-dark/20 dark:border-light/20 rounded-lg">
-					<span
+					<NavLink
+						to={`/assignments/details/${id}`}
+						target="_blank"
 						className="p-2"
 						title="View Details"
 					>
@@ -50,7 +53,7 @@ const AssignmentCard = ({ children: assignment }) => {
 							size={20}
 							className="hover:fill-primary-dark dark:hover:fill-primary-light cursor-pointer"
 						/>
-					</span>
+					</NavLink>
 					<span
 						className="p-2"
 						title="Update"
