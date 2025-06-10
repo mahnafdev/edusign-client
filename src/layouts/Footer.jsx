@@ -5,7 +5,6 @@ import {
 	FaMessage,
 	FaPaperPlane,
 	FaPhone,
-	FaTelegram,
 	FaYoutube,
 } from "react-icons/fa6";
 import Logo from "../assets/logo.png";

@@ -3,19 +3,19 @@ import StatCard from "../shared/StatCard";
 const Stats = () => {
 	const stats = [
 		{
-			number: 105,
+			count: 105,
 			title: "Active Studying Groups",
 		},
 		{
-			number: 340,
+			count: 340,
 			title: "Experienced Mentors",
 		},
 		{
-			number: 455,
+			count: 455,
 			title: "Graduated Students",
 		},
 		{
-			number: 180,
+			count: 180,
 			title: "Published Assignments",
 		},
 	];
@@ -31,7 +31,7 @@ const Stats = () => {
 				{stats.map((stat) => (
 					<StatCard
 						key={stat.title}
-						number={stat.number}
+						count={stat.count}
 						title={stat.title}
 					/>
 				))}
