@@ -1,4 +1,10 @@
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { FaCalendar } from "react-icons/fa6";
+
 const CreateAssignmentForm = () => {
+	const [initialDate, setInitialDate] = useState(new Date());
 	return (
 		<div className="w-1/2">
 			<h3 className="text-3xl font-bold text-primary-dark dark:text-primary-light mb-4">
@@ -94,18 +100,19 @@ const CreateAssignmentForm = () => {
 						required
 					/> */}
 				</label>
-				<label className="flex flex-col gap-y-2 text-lg">
+				<label className="flex flex-col gap-y-2">
 					<div className="flex flex-col">
 						<span className="font-medium text-lg">Due Date</span>
 						<small className="text-sm text-neutral-500 font-medium dark:text-neutral-300">
 							Happening Date of Assignment
 						</small>
 					</div>
-					<input
-						type="date"
-						name="due_date"
-						className="w-40 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
-						required
+					<DatePicker
+						showIcon
+						icon={<FaCalendar className="fill-blue-900 top-0.5 -left-1" />}
+						selected={initialDate}
+						className="w-64 bg-blue-50 dark:bg-[#19191f] px-2 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
+						onChange={(date) => setInitialDate(date)}
 					/>
 				</label>
 				<div className="text-center mt-6">
