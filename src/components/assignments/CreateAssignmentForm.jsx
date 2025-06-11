@@ -4,14 +4,32 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendar } from "react-icons/fa6";
 
 const CreateAssignmentForm = () => {
+	// Initial Date for custom Date-picker
 	const [initialDate, setInitialDate] = useState(new Date());
+	// Current Date for posted_date
+	const date = new Date();
+	const currentDate = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`.replaceAll(
+		"-",
+		"/",
+	);
+	const handleCreate = (e) => {
+		e.preventDefault();
+		const form = e.target;
+		const formData = new FormData(form);
+		const data = Object.fromEntries(formData.entries());
+		data.total_marks = Number(data.total_marks);
+		data.posted_date = currentDate;
+	};
 	return (
 		<div className="w-1/2">
 			<h3 className="text-3xl font-bold text-primary-dark dark:text-primary-light mb-4">
 				Create An Assignment
 			</h3>
 			{/* Form */}
-			<form className="max-w-2/3 space-y-2">
+			<form
+				className="max-w-2/3 space-y-2"
+				onSubmit={handleCreate}
+			>
 				<label className="flex flex-col gap-y-2 text-lg">
 					<div className="flex flex-col">
 						<span className="font-medium text-lg">Title</span>
@@ -68,9 +86,10 @@ const CreateAssignmentForm = () => {
 					</div>
 					<input
 						type="number"
-						name="marks"
+						name="total_marks"
 						min={5}
 						max={100}
+						step={5}
 						className="w-40 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
 						placeholder="100"
 						required
@@ -89,16 +108,10 @@ const CreateAssignmentForm = () => {
 						className="w-40 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
 						required
 					>
-						<option value="easy">Easy</option>
-						<option value="medium">Medium</option>
-						<option value="hard">Hard</option>
+						<option value="Easy">Easy</option>
+						<option value="Medium">Medium</option>
+						<option value="Hard">Hard</option>
 					</select>
-					{/* <input
-						type="text"
-						name="title"
-						className="bg-blue-50 dark:bg-[#19191f] p-2 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
-						required
-					/> */}
 				</label>
 				<label className="flex flex-col gap-y-2">
 					<div className="flex flex-col">
@@ -111,6 +124,7 @@ const CreateAssignmentForm = () => {
 						showIcon
 						icon={<FaCalendar className="fill-blue-900 top-0.5 -left-1" />}
 						selected={initialDate}
+						name="due_date"
 						className="w-64 bg-blue-50 dark:bg-[#19191f] px-2 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
 						onChange={(date) => setInitialDate(date)}
 					/>
