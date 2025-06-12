@@ -3,7 +3,7 @@ import {
 	FaFileCircleCheck,
 	FaFileCirclePlus,
 	FaFolderOpen,
-	FaPencil,
+	FaPenToSquare,
 	FaPeopleGroup,
 	FaTrashCan,
 	FaUpload,
@@ -25,7 +25,7 @@ const Features = () => {
 				"View all active assignments with instructions, dates, and other details.",
 		},
 		{
-			Icon: FaPencil,
+			Icon: FaPenToSquare,
 			title: "Update Your Assignments",
 			description:
 				"Update any published assignment to match updated requirements easily.",
