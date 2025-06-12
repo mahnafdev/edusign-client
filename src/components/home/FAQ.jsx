@@ -26,7 +26,7 @@ const FAQ = () => {
 	return (
 		<section
 			id="faq"
-			className="max-w-8xl mx-auto mt-20 space-y-10"
+			className="max-w-8xl mx-auto mt-24 space-y-10"
 		>
 			{/* Section Heading */}
 			<h2 className="text-4xl font-bold text-center">
