@@ -2,6 +2,9 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendar } from "react-icons/fa6";
+import api from "../../services/apiClient";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const CreateAssignmentForm = () => {
 	// Initial Date for custom Date-picker
@@ -12,13 +15,31 @@ const CreateAssignmentForm = () => {
 		"-",
 		"/",
 	);
+	// Navigation function
+	const navigate = useNavigate();
 	const handleCreate = (e) => {
+		// Prevent site reload
 		e.preventDefault();
+		// Get submitted data
 		const form = e.target;
 		const formData = new FormData(form);
 		const data = Object.fromEntries(formData.entries());
+		// Process data
 		data.total_marks = Number(data.total_marks);
 		data.posted_date = currentDate;
+		// Send data to server/database
+		api.post("/assignments", data)
+			.then((res) => {
+				const isInserted = res.data.insertedId;
+				// Successful insertion confirmation
+				if (isInserted) {
+					toast.success("Assignment published successfully!");
+					navigate("/assignments");
+				} else {
+					toast.error("Something went wrong! Please try again.");
+				}
+			})
+			.catch((error) => toast.error(error));
 	};
 	return (
 		<div className="w-1/2">
