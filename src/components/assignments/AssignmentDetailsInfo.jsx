@@ -37,7 +37,7 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 				</div>
 			</div>
 			{/* Key Info */}
-			<div className="max-w-5xl mx-auto p-8 flex flex-col items-center bg-neutral-100 border border-neutral-200 rounded-2xl text-xl">
+			<div className="max-w-4xl mx-auto p-8 flex flex-col items-center bg-neutral-100 border border-neutral-200 rounded-2xl text-xl">
 				<div className="grid grid-cols-2 gap-x-20 gap-y-4">
 					<p
 						className="flex items-center gap-x-2"
@@ -99,7 +99,7 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 				</div>
 			</div>
 			{/* Description */}
-			<div className="max-w-7xl mx-auto p-8 bg-neutral-100 border border-neutral-200 rounded-3xl text-lg">
+			<div className="max-w-7xl mx-auto p-8 bg-neutral-100 border border-neutral-200 rounded-2xl text-lg">
 				<p className="font-semibold text-xl mb-1">Instructions:</p>
 				<p>{description}</p>
 			</div>
