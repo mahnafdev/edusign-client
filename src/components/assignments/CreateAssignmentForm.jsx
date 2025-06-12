@@ -125,7 +125,7 @@ const CreateAssignmentForm = () => {
 					</div>
 					<select
 						name="difficulty"
-						defaultValue="medium"
+						defaultValue="Medium"
 						className="w-40 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
 						required
 					>

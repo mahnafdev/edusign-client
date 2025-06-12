@@ -1,72 +1,93 @@
 import { useEffect, useState } from "react";
 import AssignmentCard from "../components/shared/AssignmentCard";
 import api from "../services/apiClient";
+import toast from "react-hot-toast";
 
 const ViewAssignments = () => {
 	const [assignments, setAssignments] = useState(null);
+	const [difficulty, setDifficulty] = useState("");
+	const [subject, setSubject] = useState("");
+	const [search, setSearch] = useState("");
+	// Handle Filtering
+	const handleDifficultyFilter = (e) => {
+		const filterValue = e.target.value;
+		setDifficulty(filterValue);
+		api.get(filterValue ? `/assignments?difficulty=${filterValue}` : "/assignments")
+			.then((res) => setAssignments(res.data))
+			.catch((error) => toast.error(error));
+	};
+	const handleSubjectFilter = (e) => {
+		const filterValue = e.target.value;
+		setSubject(filterValue);
+		api.get(filterValue ? `/assignments?subject=${filterValue}` : "/assignments")
+			.then((res) => setAssignments(res.data))
+			.catch((error) => toast.error(error));
+	};
+	// Handle Searching
+	const handleSearch = (e) => {
+		const searchValue = e.target.value;
+		setSearch(searchValue);
+		api.get(searchValue ? `/assignments?search=${searchValue}` : "/assignments")
+			.then((res) => setAssignments(res.data))
+			.catch((error) => toast.error(error));
+	};
 	useEffect(() => {
 		api.get("/assignments")
 			.then((res) => setAssignments(res.data))
 			.catch((error) => console.log(error));
 	}, []);
-	// const assignments = [
-	// 	{
-	// 		id: 1,
-	// 		title: "Algebraic Expressions Simplification",
-	// 		subject: "Mathematics",
-	// 		description:
-	// 			"You are given a set of 10 algebraic problems involving brackets, powers, and variables. Your task is to simplify each expression step by step and show all your workings clearly. This will test your conceptual understanding and speed.",
-	// 		thumbnail:
-	// 			"https://cdn.slidesharecdn.com/ss_thumbnails/algebraicexpressionsppt-240311133021-8889d019-thumbnail.jpg",
-	// 		total_marks: 80,
-	// 		difficulty: "Medium",
-	// 		due_date: "2025-06-15",
-	// 		posted_date: "2025-06-10",
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		title: "Descriptive Essay: A Day Without Technology",
-	// 		subject: "Technology",
-	// 		description:
-	// 			"Imagine living a full day without any electronic devices or digital access. Describe how you would spend that day, the emotions you'd experience, and how your priorities might change. The essay should be between 350-500 words and written in first person.",
-	// 		thumbnail: "https://miro.medium.com/v2/1*eRtU9RoGo-_UZFfch_kzxQ.jpeg",
-	// 		total_marks: 80,
-	// 		difficulty: "Easy",
-	// 		due_date: "2025-06-13",
-	// 		posted_date: "2025-06-10",
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		title: "Biography of Prophet Muhammad (SAW)",
-	// 		subject: "Islamic",
-	// 		description:
-	// 			"Write a biographical overview of Prophet Muhammad (SAW)'s life including his early childhood, revelation, key struggles, and major achievements. Include at least 3 authentic references. Your write-up should be thoughtful.",
-	// 		thumbnail:
-	// 			"https://thesincereseeker.com/wp-content/uploads/2025/01/life-of-prophet-muhammad-seerah-05.png",
-	// 		total_marks: 90,
-	// 		difficulty: "Medium",
-	// 		due_date: "2025-06-18",
-	// 		posted_date: "2025-06-10",
-	// 	},
-	// 	{
-	// 		id: 4,
-	// 		title: "Reading Comprehension: The Value of Time",
-	// 		subject: "English",
-	// 		description:
-	// 			"Read the provided passage carefully and answer five detailed comprehension questions. Focus on main ideas, vocabulary in context, inference skills, and summary writing. Answers must be written in complete sentences and reflect understanding.",
-	// 		thumbnail:
-	// 			"https://www.kidpid.com/wp-content/uploads/2025/01/Paragraph-on-Value-of-Time.png",
-	// 		total_marks: 70,
-	// 		difficulty: "Easy",
-	// 		due_date: "2025-06-12",
-	// 		posted_date: "2025-06-10",
-	// 	},
-	// ];
 	return (
 		<main className="py-24">
-			<section className="max-w-8xl mx-auto space-y-10">
+			<section className="max-w-8xl mx-auto">
 				{/* Heading Text */}
-				<h2 className="text-4xl font-bold text-center text-primary">All Assignments</h2>
+				<h2 className="text-4xl font-bold text-center text-primary mb-4">
+					View Assignments
+				</h2>
+				{/* Filter & Search */}
+				<div className="flex justify-between mb-12">
+					<div className="flex items-center gap-x-3">
+						<label className="flex flex-col gap-y-1 text-lg">
+							<span className="font-medium text-xl">Difficulty</span>
+							<select
+								name="difficulty"
+								value={difficulty}
+								onChange={handleDifficultyFilter}
+								className="w-32 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-md"
+								required
+							>
+								<option value="">All</option>
+								<option value="Easy">Easy</option>
+								<option value="Medium">Medium</option>
+								<option value="Hard">Hard</option>
+							</select>
+						</label>
+						<label className="flex flex-col gap-y-1 text-lg">
+							<span className="font-medium text-xl">Subject</span>
+							<select
+								name="subject"
+								value={subject}
+								onChange={handleSubjectFilter}
+								className="w-40 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-md"
+								required
+							>
+								<option value="">All</option>
+								<option value="Technology">Technology</option>
+							</select>
+						</label>
+					</div>
+					<label className="flex flex-col gap-y-1 text-lg">
+						<span className="font-medium text-xl">🔍 Search</span>
+						<input
+							type="text"
+							name="search"
+							value={search}
+							onChange={handleSearch}
+							className="w-60 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
+							placeholder="Search Text..."
+							required
+						/>
+					</label>
+				</div>
 				{/* Assignments List */}
 				<div className="flex flex-col gap-y-4">
 					{assignments?.map((assignment) => (
