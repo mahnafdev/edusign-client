@@ -9,6 +9,7 @@ import {
 	FaUpload,
 } from "react-icons/fa6";
 import FeatureCard from "../shared/FeatureCard";
+import { motion } from "motion/react";
 
 const Features = () => {
 	const features = [
@@ -60,7 +61,21 @@ const Features = () => {
 		},
 	];
 	return (
-		<section className="max-w-8xl mx-auto mt-24 space-y-10">
+		<motion.section
+			className="max-w-8xl mx-auto mt-40 space-y-10"
+			initial={{
+				scale: 0.4,
+				opacity: 0,
+			}}
+			whileInView={{
+				scale: 1,
+				opacity: 1,
+			}}
+			transition={{
+				duration: 1,
+				type: "spring",
+			}}
+		>
 			{/* Section Heading */}
 			<h2 className="text-4xl font-bold text-center">
 				Smart{" "}
@@ -75,7 +90,7 @@ const Features = () => {
 					<FeatureCard key={feature.title}>{feature}</FeatureCard>
 				))}
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
