@@ -1,11 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendar } from "react-icons/fa6";
 
-const UpdateAssignmentForm = () => {
+const UpdateAssignmentForm = ({ data: assignment }) => {
+	// Destructure assignment entries
+	const { title, description, thumbnail, total_marks, difficulty, due_date } = assignment;
 	// Initial Date for custom Date-picker
 	const [initialDate, setInitialDate] = useState(new Date());
+	// Set initial due date as default
+	useEffect(() => {
+		if (due_date) setInitialDate(new Date(due_date));
+	}, [due_date]);
 	return (
 		<div className="w-1/2 mx-auto">
 			<h3 className="text-3xl font-bold text-center text-primary-dark dark:text-primary-light mb-6">
@@ -24,7 +30,8 @@ const UpdateAssignmentForm = () => {
 						type="text"
 						name="title"
 						className="bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
-						placeholder="Math Algebra Test"
+						defaultValue={title}
+						placeholder="Math Algebra Exam"
 						required
 					/>
 				</label>
@@ -40,8 +47,9 @@ const UpdateAssignmentForm = () => {
 						minLength={25}
 						maxLength={400}
 						name="description"
-						className="resize-none bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-xl placeholder:text-neutral-400"
-						placeholder="A test assignment details paragraph. This assignment is about a large part of Maths. Describe what is Algebra and why do we need it in our regular life?"
+						className="resize-none bg-blue-50 dark:bg-[#19191f] p-2 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-xl placeholder:text-neutral-400"
+						defaultValue={description}
+						placeholder="A test assignment details. This assignment is about a large part of Mathematics. Explain what is Algebra and why do we need it in our regular life?"
 						required
 					/>
 				</label>
@@ -56,7 +64,8 @@ const UpdateAssignmentForm = () => {
 						type="url"
 						name="thumbnail"
 						className="bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
-						placeholder="https://imgur.com/gallery/id"
+						defaultValue={thumbnail}
+						placeholder="https://imgur.com/gallery/new_id"
 						required
 					/>
 				</label>
@@ -74,7 +83,8 @@ const UpdateAssignmentForm = () => {
 						max={100}
 						step={5}
 						className="w-48 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
-						placeholder="100"
+						defaultValue={total_marks}
+						placeholder="90"
 						required
 					/>
 				</label>
@@ -88,6 +98,7 @@ const UpdateAssignmentForm = () => {
 					<select
 						name="difficulty"
 						className="w-48 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
+						defaultValue={difficulty}
 						required
 					>
 						<option value="Easy">Easy</option>
