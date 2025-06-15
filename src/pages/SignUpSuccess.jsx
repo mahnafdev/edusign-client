@@ -3,10 +3,10 @@ import SuccessLottie from "../assets/lotties/accountCreateSuccess.json";
 
 const SignUpSuccess = () => {
 	return (
-		<main className="pt-40 pb-20">
+		<main className="pt-28 pb-12">
 			<Lottie
 				animationData={SuccessLottie}
-				className="mx-auto w-sm"
+				className="mx-auto w-sm aspect-square"
 			/>
 		</main>
 	);

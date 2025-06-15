@@ -8,6 +8,7 @@ import ViewAssignments from "../pages/ViewAssignments";
 import AssignmentDetails from "../pages/AssignmentDetails";
 import SignUpSuccess from "../pages/SignUpSuccess";
 import SignInSuccess from "../pages/SignInSuccess";
+import CreateAssignmentSuccess from "../pages/CreateAssignmentSuccess";
 
 const Router = createBrowserRouter([
 	{
@@ -48,6 +49,10 @@ const Router = createBrowserRouter([
 			{
 				path: "/success/authenticate",
 				Component: SignInSuccess,
+			},
+			{
+				path: "/success/assignment-create",
+				Component: CreateAssignmentSuccess,
 			},
 		],
 	},

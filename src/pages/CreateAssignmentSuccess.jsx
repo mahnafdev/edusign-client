@@ -1,7 +1,7 @@
 import Lottie from "lottie-react";
-import SuccessLottie from "../assets/lotties/authenticateSuccess.json";
+import SuccessLottie from "../assets/lotties/assignmentCreateSuccess.json";
 
-const SignInSuccess = () => {
+const CreateAssignmentSuccess = () => {
 	return (
 		<main className="pt-28 pb-12">
 			<Lottie
@@ -12,4 +12,4 @@ const SignInSuccess = () => {
 	);
 };
 
-export default SignInSuccess;
+export default CreateAssignmentSuccess;
