@@ -85,7 +85,9 @@ const AssignmentCard = ({ children: assignment }) => {
 							className="hover:fill-primary-dark dark:hover:fill-primary-light cursor-pointer"
 						/>
 					</NavLink>
-					<span
+					<NavLink
+						to={`/assignments/update/${_id}`}
+						target="_blank"
 						className="p-2"
 						title="Update"
 					>
@@ -93,7 +95,7 @@ const AssignmentCard = ({ children: assignment }) => {
 							size={20}
 							className="hover:fill-primary-dark dark:hover:fill-primary-light cursor-pointer"
 						/>
-					</span>
+					</NavLink>
 					<button
 						className="p-2"
 						title="Delete"

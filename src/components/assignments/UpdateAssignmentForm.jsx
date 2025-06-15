@@ -1,0 +1,127 @@
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { FaCalendar } from "react-icons/fa6";
+
+const UpdateAssignmentForm = () => {
+	// Initial Date for custom Date-picker
+	const [initialDate, setInitialDate] = useState(new Date());
+	return (
+		<div className="w-1/2 mx-auto">
+			<h3 className="text-3xl font-bold text-center text-primary-dark dark:text-primary-light mb-6">
+				Update Assignment
+			</h3>
+			{/* Form */}
+			<form className="space-y-2">
+				<label className="flex flex-col gap-y-2 text-lg">
+					<div className="flex flex-col">
+						<span className="font-medium text-lg">Title</span>
+						<small className="text-sm text-neutral-500 font-medium dark:text-neutral-300">
+							Assignment Title
+						</small>
+					</div>
+					<input
+						type="text"
+						name="title"
+						className="bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
+						placeholder="Math Algebra Test"
+						required
+					/>
+				</label>
+				<label className="flex flex-col gap-y-2">
+					<div className="flex flex-col">
+						<span className="font-medium text-lg">Description</span>
+						<small className="text-sm text-neutral-500 font-medium dark:text-neutral-300">
+							Details about Assignment
+						</small>
+					</div>
+					<textarea
+						rows={7}
+						minLength={25}
+						maxLength={400}
+						name="description"
+						className="resize-none bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-xl placeholder:text-neutral-400"
+						placeholder="A test assignment details paragraph. This assignment is about a large part of Maths. Describe what is Algebra and why do we need it in our regular life?"
+						required
+					/>
+				</label>
+				<label className="flex flex-col gap-y-2 text-lg">
+					<div className="flex flex-col">
+						<span className="font-medium text-lg">Thumbnail</span>
+						<small className="text-sm text-neutral-500 font-medium dark:text-neutral-300">
+							Image URL
+						</small>
+					</div>
+					<input
+						type="url"
+						name="thumbnail"
+						className="bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
+						placeholder="https://imgur.com/gallery/id"
+						required
+					/>
+				</label>
+				<label className="flex flex-col gap-y-2 text-lg">
+					<div className="flex flex-col">
+						<span className="font-medium text-lg">Total Marks</span>
+						<small className="text-sm text-neutral-500 font-medium dark:text-neutral-400">
+							Max Marks, 80% is Passing Marks
+						</small>
+					</div>
+					<input
+						type="number"
+						name="total_marks"
+						min={5}
+						max={100}
+						step={5}
+						className="w-48 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
+						placeholder="100"
+						required
+					/>
+				</label>
+				<label className="flex flex-col gap-y-2 text-lg">
+					<div className="flex flex-col">
+						<span className="font-medium text-lg">Difficulty</span>
+						<small className="text-sm text-neutral-500 font-medium dark:text-neutral-300">
+							Difficulty Level of Assignment
+						</small>
+					</div>
+					<select
+						name="difficulty"
+						className="w-48 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
+						required
+					>
+						<option value="Easy">Easy</option>
+						<option value="Medium">Medium</option>
+						<option value="Hard">Hard</option>
+					</select>
+				</label>
+				<label className="flex flex-col gap-y-2">
+					<div className="flex flex-col">
+						<span className="font-medium text-lg">Due Date</span>
+						<small className="text-sm text-neutral-500 font-medium dark:text-neutral-300">
+							Happening Date of Assignment
+						</small>
+					</div>
+					<DatePicker
+						showIcon
+						icon={<FaCalendar className="fill-blue-900 top-0.5 -left-1" />}
+						selected={initialDate}
+						name="due_date"
+						className="w-48 bg-blue-50 dark:bg-[#19191f] px-2 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
+						onChange={(date) => setInitialDate(date)}
+					/>
+				</label>
+				<div className="max-w-3/4 mx-auto mt-6">
+					<button
+						type="submit"
+						className="w-full py-2 text-xl text-light font-medium bg-primary hover:bg-primary-dark rounded-lg cursor-pointer"
+					>
+						Update
+					</button>
+				</div>
+			</form>
+		</div>
+	);
+};
+
+export default UpdateAssignmentForm;
