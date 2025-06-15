@@ -11,10 +11,7 @@ const CreateAssignmentForm = () => {
 	const [initialDate, setInitialDate] = useState(new Date());
 	// Current Date for posted_date
 	const date = new Date();
-	const currentDate = `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`.replaceAll(
-		"-",
-		"/",
-	);
+	const currentDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
 	// Navigation function
 	const navigate = useNavigate();
 	const handleCreate = (e) => {
@@ -39,7 +36,7 @@ const CreateAssignmentForm = () => {
 					toast.error("Something went wrong! Please try again.");
 				}
 			})
-			.catch((error) => toast.error(error));
+			.catch((error) => toast.error(error.message));
 	};
 	return (
 		<div className="w-1/2">

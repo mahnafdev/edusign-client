@@ -14,14 +14,14 @@ const ViewAssignments = () => {
 		setDifficulty(filterValue);
 		api.get(filterValue ? `/assignments?difficulty=${filterValue}` : "/assignments")
 			.then((res) => setAssignments(res.data))
-			.catch((error) => toast.error(error));
+			.catch((error) => toast.error(error.message));
 	};
 	const handleSubjectFilter = (e) => {
 		const filterValue = e.target.value;
 		setSubject(filterValue);
 		api.get(filterValue ? `/assignments?subject=${filterValue}` : "/assignments")
 			.then((res) => setAssignments(res.data))
-			.catch((error) => toast.error(error));
+			.catch((error) => toast.error(error.message));
 	};
 	// Handle Searching
 	const handleSearch = (e) => {
@@ -29,7 +29,7 @@ const ViewAssignments = () => {
 		setSearch(searchValue);
 		api.get(searchValue ? `/assignments?search=${searchValue}` : "/assignments")
 			.then((res) => setAssignments(res.data))
-			.catch((error) => toast.error(error));
+			.catch((error) => toast.error(error.message));
 	};
 	useEffect(() => {
 		api.get("/assignments")

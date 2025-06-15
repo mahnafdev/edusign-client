@@ -10,7 +10,7 @@ const AssignmentDetails = () => {
 	useEffect(() => {
 		api.get(`/assignments/${id}`)
 			.then((res) => setAssignment(res.data))
-			.catch((error) => toast.error(error));
+			.catch((error) => toast.error(error.message));
 	}, []);
 	return (
 		<main className="py-28">

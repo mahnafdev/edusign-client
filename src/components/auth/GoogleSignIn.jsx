@@ -10,7 +10,7 @@ const GoogleSignIn = () => {
 				toast.success("Successfully logged in to your account with Google!");
 			})
 			.catch((error) => {
-				toast.error(`${error.message}`);
+				toast.error(error.message);
 			});
 	};
 	return (

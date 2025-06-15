@@ -2,23 +2,58 @@ import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaCalendar } from "react-icons/fa6";
+import api from "../../services/apiClient";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const UpdateAssignmentForm = ({ data: assignment }) => {
 	// Destructure assignment entries
-	const { title, description, thumbnail, total_marks, difficulty, due_date } = assignment;
+	const { _id, title, description, thumbnail, total_marks, difficulty, due_date } =
+		assignment;
 	// Initial Date for custom Date-picker
 	const [initialDate, setInitialDate] = useState(new Date());
 	// Set initial due date as default
 	useEffect(() => {
 		if (due_date) setInitialDate(new Date(due_date));
 	}, [due_date]);
+	// Current Date for posted_date
+	const date = new Date();
+	const currentDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+	const navigate = useNavigate();
+	// Handle update
+	const handleUpdate = (e) => {
+		e.preventDefault();
+		// Extract submission data
+		const form = e.target;
+		const formData = new FormData(form);
+		const data = Object.fromEntries(formData.entries());
+		// Process data
+		data.total_marks = Number(data.total_marks);
+		data.posted_date = currentDate;
+		// Update data in server/database
+		api.put(`/assignments/${_id}`, data)
+			.then((res) => {
+				const isInserted = res.data.insertedId;
+				// Successful insertion confirmation
+				if (isInserted) {
+					toast.success("Assignment updated successfully!");
+					navigate(`/assignments/details/${_id}`);
+				} else {
+					toast.error("Something went wrong! Please try again.");
+				}
+			})
+			.catch((error) => toast.error(error.message));
+	};
 	return (
 		<div className="w-1/2 mx-auto">
 			<h3 className="text-3xl font-bold text-center text-primary-dark dark:text-primary-light mb-6">
 				Update Assignment
 			</h3>
 			{/* Form */}
-			<form className="space-y-2">
+			<form
+				className="space-y-2"
+				onSubmit={handleUpdate}
+			>
 				<label className="flex flex-col gap-y-2 text-lg">
 					<div className="flex flex-col">
 						<span className="font-medium text-lg">Title</span>
