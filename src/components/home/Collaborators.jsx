@@ -9,6 +9,7 @@ import TalemyDark from "../../assets/collaborators/talemy-dark.png";
 import EduMallLight from "../../assets/collaborators/edumall-light.png";
 import EduMallDark from "../../assets/collaborators/edumall-dark.png";
 import AllStudy from "../../assets/collaborators/all-study.png";
+import { motion } from "motion/react";
 
 const Collaborators = () => {
 	const logos = [
@@ -45,9 +46,21 @@ const Collaborators = () => {
 	];
 	const currentTheme = localStorage.getItem("theme");
 	return (
-		<section
+		<motion.section
 			id="collaborators"
-			className="max-w-7xl mx-auto mt-12 grid grid-cols-2 place-items-center gap-x-8"
+			className="max-w-7xl mx-auto mt-16 grid grid-cols-2 place-items-center gap-x-8"
+			initial={{
+				scale: 0,
+				opacity: 0,
+			}}
+			whileInView={{
+				scale: 1,
+				opacity: 1,
+			}}
+			transition={{
+				duration: 1,
+				type: "spring",
+			}}
 		>
 			{/* Section Heading */}
 			<h3 className="text-3xl font-bold">
@@ -66,12 +79,12 @@ const Collaborators = () => {
 						<img
 							src={currentTheme === "light" ? logo.light : logo.dark}
 							alt={logo.alt}
-							className="h-6 cursor-pointer"
+							className="h-6 cursor-pointer hover:scale-110 duration-200"
 						/>
 					</a>
 				))}
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
