@@ -2,9 +2,10 @@ import { Link, useNavigate } from "react-router";
 import useAuthContext from "../../hooks/useAuthContext";
 import toast from "react-hot-toast";
 import GoogleSignIn from "./GoogleSignIn";
+import Button from "../shared/Button";
 
 const SignUpCard = () => {
-	const { signUpUser } = useAuthContext();
+	const { signUpUser, updateUserProfile } = useAuthContext();
 	const navigate = useNavigate();
 	// Handle SignUp operation
 	const handleSignUp = (event) => {
@@ -29,13 +30,18 @@ const SignUpCard = () => {
 			signUpUser(data.email, data.password)
 				// Upon success
 				.then((userCredentials) => {
-					toast.success("Created your account successfully!");
-					navigate("/success/account-create");
+					// Update user profile
+					updateUserProfile(data.firstName + data.lastName, data.photoURL)
+						// Upon success
+						.then(() => {
+							toast.success("Created your account successfully!");
+							navigate("/success/account-create");
+						})
+						// Upon error
+						.catch((error) => toast.error(error.message));
 				})
 				// Upon error
-				.catch((error) => {
-					toast.error(error.message);
-				});
+				.catch((error) => toast.error(error.message));
 		}
 	};
 	return (
@@ -69,6 +75,15 @@ const SignUpCard = () => {
 					/>
 				</label>
 				<label className="flex flex-col gap-y-1 text-lg">
+					<span className="font-medium">Profile Photo (URL)</span>
+					<input
+						type="url"
+						name="photoURL"
+						className="bg-blue-50 dark:bg-[#19191f] p-2 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
+						placeholder="https://imgur.com/gallery/user_photo"
+					/>
+				</label>
+				<label className="flex flex-col gap-y-1 text-lg">
 					<span className="font-medium">Email</span>
 					<input
 						type="email"
@@ -89,12 +104,12 @@ const SignUpCard = () => {
 					/>
 				</label>
 				<div className="text-center mt-6">
-					<button
-						type="submit"
-						className="w-full py-2 text-xl text-light font-medium bg-primary hover:bg-primary-dark rounded-xl cursor-pointer"
+					<Button
+						buttonType="submit"
+						customClasses="w-full text-xl"
 					>
 						Sign Up
-					</button>
+					</Button>
 				</div>
 			</form>
 			<div className="relative my-8 max-w-5/6 mx-auto">

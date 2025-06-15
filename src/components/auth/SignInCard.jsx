@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router";
 import useAuthContext from "../../hooks/useAuthContext";
 import toast from "react-hot-toast";
 import GoogleSignIn from "./GoogleSignIn";
+import Button from "../shared/Button";
 
 const SignInCard = () => {
 	const { signInUser } = useAuthContext();
@@ -56,12 +57,12 @@ const SignInCard = () => {
 					/>
 				</label>
 				<div className="text-center mt-6">
-					<button
-						type="submit"
-						className="w-full py-2 text-xl text-light font-medium bg-primary hover:bg-primary-dark rounded-xl cursor-pointer"
+					<Button
+						buttonType="submit"
+						customClasses="w-full text-xl"
 					>
 						Sign In
-					</button>
+					</Button>
 				</div>
 			</form>
 			<div className="relative my-8 max-w-5/6 mx-auto">
