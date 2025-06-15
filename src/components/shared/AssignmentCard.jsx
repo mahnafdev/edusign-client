@@ -15,14 +15,15 @@ const AssignmentCard = ({ children: assignment }) => {
 			titleText: "Are you sure?",
 			text: "The deletion is irreversible!",
 			confirmButtonText: "Yes, Delete",
-			confirmButtonColor: "var(--color-primary)",
 			showDenyButton: true,
 			denyButtonText: "No, Cancel",
 			denyButtonColor: "#dc3535",
 			customClass: {
 				popup: "!rounded-xl",
-				confirmButton: "!rounded-md",
-				denyButton: "!rounded-md",
+				confirmButton:
+					"!py-2 !bg-primary !rounded-lg !border !border-b-4 !border-blue-700 hover:!border-t-4 hover:!border-b active:!brightness-115 !transition-all !duration-200",
+				denyButton:
+					"!py-2 !rounded-lg !border !border-b-4 !border-red-800 hover:!border-t-4 hover:!border-b active:!brightness-115 !transition-all !duration-200",
 			},
 		}).then((result) => {
 			if (result.isConfirmed) {

@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import HeroImage from "../../assets/hero.jpg";
 import { motion } from "motion/react";
+import Button from "../shared/Button";
 
 const Hero = () => {
 	return (
@@ -59,13 +60,7 @@ const Hero = () => {
 						to="/assignments"
 						target="_blank"
 					>
-						<button
-							type="button"
-							className="px-4 py-3 bg-primary text-light font-medium rounded-full cursor-pointer border border-b-4 border-blue-700 overflow-hidden relative hover:border-t-4 hover:border-b active:brightness-115 duration-250 group"
-						>
-							<span className="bg-blue-400 shadow-blue-400 absolute -top-[35%] left-0 inline-flex w-48 h-1 rounded-md opacity-50 group-hover:top-[105%] duration-400 shadow-[0_0_0.5rem_0.5rem_rgba(0,0,0,0.3)]"></span>
-							Explore Assignments
-						</button>
+						<Button fullRounded>Explore Assignments</Button>
 					</Link>
 				</div>
 			</div>

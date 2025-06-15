@@ -5,6 +5,7 @@ import { FaCalendar } from "react-icons/fa6";
 import api from "../../services/apiClient";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import Button from "../shared/Button";
 
 const UpdateAssignmentForm = ({ data: assignment }) => {
 	// Destructure assignment entries
@@ -150,7 +151,9 @@ const UpdateAssignmentForm = ({ data: assignment }) => {
 					</div>
 					<DatePicker
 						showIcon
-						icon={<FaCalendar className="fill-blue-900 top-0.5 -left-1" />}
+						icon={
+							<FaCalendar className="fill-blue-900 dark:fill-blue-200 top-0.5 -left-1" />
+						}
 						selected={initialDate}
 						name="due_date"
 						className="w-48 bg-blue-50 dark:bg-[#19191f] px-2 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
@@ -158,12 +161,7 @@ const UpdateAssignmentForm = ({ data: assignment }) => {
 					/>
 				</label>
 				<div className="max-w-3/4 mx-auto mt-6">
-					<button
-						type="submit"
-						className="w-full py-2 text-xl text-light font-medium bg-primary hover:bg-primary-dark rounded-lg cursor-pointer"
-					>
-						Update
-					</button>
+					<Button fullWidth>Update</Button>
 				</div>
 			</form>
 		</div>

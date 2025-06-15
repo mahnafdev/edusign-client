@@ -18,7 +18,7 @@ const Accordion = ({
 					size={20}
 					className={`fill-primary dark:fill-primary-light ${
 						isOpen ? "rotate-135" : "rotate-0"
-					} transition-transform duration-200`}
+					} transition-transform duration-300`}
 				/>
 			</div>
 			{/* Description */}

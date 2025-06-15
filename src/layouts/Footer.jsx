@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa6";
 import Logo from "../assets/logo.png";
 import { Link } from "react-router";
+import Button from "../components/shared/Button";
 
 const Footer = () => {
 	return (
@@ -132,30 +133,34 @@ const Footer = () => {
 						<a
 							href="https://github.com/ninjaquasar"
 							title="Follow - GitHub"
-							className="p-2 bg-blue-300 dark:bg-blue-500 rounded-md hover:scale-110 transition-transform"
 						>
-							<FaGithubAlt size={20} />
+							<Button customClasses="!px-3 aspect-square">
+								<FaGithubAlt size={20} />
+							</Button>
 						</a>
 						<a
 							href="https://youtube.com/@ninjaquasar"
 							title="Subscribe - YouTube"
-							className="p-2 bg-blue-300 dark:bg-blue-500 rounded-md hover:scale-110 transition-transform"
 						>
-							<FaYoutube size={20} />
+							<Button customClasses="!px-3 aspect-square">
+								<FaYoutube size={20} />
+							</Button>
 						</a>
 						<a
 							href="https://facebook.com/ninjaquasar"
 							title="Follow - Facebook"
-							className="p-2 bg-blue-300 dark:bg-blue-500 rounded-md hover:scale-110 transition-transform"
 						>
-							<FaFacebookF size={20} />
+							<Button customClasses="!px-3 aspect-square">
+								<FaFacebookF size={20} />
+							</Button>
 						</a>
 						<a
 							href="https://t.me/ninjaquasar"
 							title="Message - Telegram"
-							className="p-2 bg-blue-300 dark:bg-blue-500 rounded-md hover:scale-110 transition-transform"
 						>
-							<FaPaperPlane size={20} />
+							<Button customClasses="!px-3 aspect-square">
+								<FaPaperPlane size={20} />
+							</Button>
 						</a>
 					</div>
 				</div>

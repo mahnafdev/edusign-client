@@ -1,6 +1,7 @@
 import { NavLink } from "react-router";
 import Logo from "../assets/logo.png";
 import ToggleTheme from "../components/shared/ToggleTheme";
+import Button from "../components/shared/Button";
 
 const Navbar = () => {
 	return (
@@ -63,20 +64,10 @@ const Navbar = () => {
 					className="flex items-center gap-x-2 text-lg font-semibold"
 				>
 					<NavLink to="/signin">
-						<button
-							type="button"
-							className="px-4 py-2.5 bg-primary-light text-light rounded-lg hover:bg-primary cursor-pointer"
-						>
-							Sign In
-						</button>
+						<Button>Sign In</Button>
 					</NavLink>
 					<NavLink to="/support-contact">
-						<button
-							type="button"
-							className="px-4 py-2.5 bg-primary-dark text-light rounded-lg hover:bg-primary cursor-pointer"
-						>
-							Support
-						</button>
+						<Button>Support</Button>
 					</NavLink>
 					<ToggleTheme buttonClasses="ml-4" />
 				</div>
