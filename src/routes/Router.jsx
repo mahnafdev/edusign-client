@@ -7,6 +7,7 @@ import CreateAssignment from "../pages/CreateAssignment";
 import ViewAssignments from "../pages/ViewAssignments";
 import AssignmentDetails from "../pages/AssignmentDetails";
 import SignUpSuccess from "../pages/SignUpSuccess";
+import SignInSuccess from "../pages/SignInSuccess";
 
 const Router = createBrowserRouter([
 	{
@@ -43,6 +44,10 @@ const Router = createBrowserRouter([
 			{
 				path: "/success/account-create",
 				Component: SignUpSuccess,
+			},
+			{
+				path: "/success/authenticate",
+				Component: SignInSuccess,
 			},
 		],
 	},

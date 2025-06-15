@@ -1,10 +1,11 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import useAuthContext from "../../hooks/useAuthContext";
 import toast from "react-hot-toast";
 import GoogleSignIn from "./GoogleSignIn";
 
 const SignInCard = () => {
 	const { signInUser } = useAuthContext();
+	const navigate = useNavigate();
 	// Handle SignIn operation
 	const handleSignIn = (event) => {
 		// Prevent website from reloading
@@ -18,6 +19,7 @@ const SignInCard = () => {
 			// Upon success
 			.then((userCredentials) => {
 				toast.success("Logged in to your account successfully!");
+				navigate("/success/authenticate");
 			})
 			// Upon error
 			.catch((error) => {
