@@ -9,17 +9,23 @@ import Button from "../shared/Button";
 
 const UpdateAssignmentForm = ({ data: assignment }) => {
 	// Destructure assignment entries
-	const { _id, title, description, thumbnail, total_marks, difficulty, due_date } =
-		assignment;
+	const {
+		_id,
+		title,
+		description,
+		thumbnail,
+		total_marks,
+		difficulty,
+		due_date,
+		posted_date,
+	} = assignment;
 	// Initial Date for custom Date-picker
 	const [initialDate, setInitialDate] = useState(new Date());
 	// Set initial due date as default
 	useEffect(() => {
 		if (due_date) setInitialDate(new Date(due_date));
 	}, [due_date]);
-	// Current Date for posted_date
-	const date = new Date();
-	const currentDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+	// Navigation function
 	const navigate = useNavigate();
 	// Handle update
 	const handleUpdate = (e) => {
@@ -30,13 +36,13 @@ const UpdateAssignmentForm = ({ data: assignment }) => {
 		const data = Object.fromEntries(formData.entries());
 		// Process data
 		data.total_marks = Number(data.total_marks);
-		data.posted_date = currentDate;
+		data.posted_date = posted_date;
 		// Update data in server/database
 		api.put(`/assignments/${_id}`, data)
 			.then((res) => {
-				const isInserted = res.data.insertedId;
-				// Successful insertion confirmation
-				if (isInserted) {
+				const isUpdated = res.data.modifiedCount;
+				// Successful update confirmation
+				if (isUpdated) {
 					toast.success("Assignment updated successfully!");
 					navigate(`/assignments/details/${_id}`);
 				} else {
@@ -192,7 +198,12 @@ const UpdateAssignmentForm = ({ data: assignment }) => {
 					/>
 				</label>
 				<div className="max-w-3/4 mx-auto mt-6">
-					<Button fullWidth>Update</Button>
+					<Button
+						buttonType="submit"
+						fullWidth
+					>
+						Update
+					</Button>
 				</div>
 			</form>
 		</div>

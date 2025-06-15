@@ -182,7 +182,12 @@ const CreateAssignmentForm = () => {
 					/>
 				</label>
 				<div className="text-center mt-6">
-					<Button fullWidth>Create</Button>
+					<Button
+						buttonType="submit"
+						fullWidth
+					>
+						Create
+					</Button>
 				</div>
 			</form>
 		</div>

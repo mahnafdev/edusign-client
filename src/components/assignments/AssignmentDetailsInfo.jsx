@@ -30,7 +30,7 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 					{/* Subject */}
 					<p
 						title="Subject"
-						className="px-3 py-1 bg-neutral-200/80 w-fit rounded-md font-medium text-xl text-neutral-700"
+						className="px-3 py-1 bg-neutral-200/60 w-fit rounded-md font-medium text-lg text-neutral-800"
 					>
 						{subject}
 					</p>
