@@ -1,4 +1,5 @@
 import StatCard from "../shared/StatCard";
+import { motion } from "motion/react";
 
 const Stats = () => {
 	const stats = [
@@ -20,9 +21,18 @@ const Stats = () => {
 		},
 	];
 	return (
-		<section
+		<motion.section
 			id="stats"
-			className="mt-24 py-24 bg-[url(https://i.ibb.co/sJF64JXP/stats-bg.jpg)] bg-cover bg-center text-light"
+			className="mt-40 py-28 bg-[url(https://i.ibb.co/sJF64JXP/stats-bg.jpg)] bg-cover bg-center text-light"
+			initial={{
+				opacity: 0,
+			}}
+			whileInView={{
+				opacity: 1,
+			}}
+			transition={{
+				duration: 0.75,
+			}}
 		>
 			<div
 				id="stats-content"
@@ -36,7 +46,7 @@ const Stats = () => {
 					/>
 				))}
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
