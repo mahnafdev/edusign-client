@@ -83,6 +83,37 @@ const CreateAssignmentForm = () => {
 				</label>
 				<label className="flex flex-col gap-y-2 text-lg">
 					<div className="flex flex-col">
+						<span className="font-medium text-lg">Subject</span>
+						<small className="text-sm text-neutral-500 font-medium dark:text-neutral-300">
+							Subject/Topic of the Assignment
+						</small>
+					</div>
+					<select
+						name="subject"
+						className="w-48 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
+						required
+					>
+						<option value="Technology">Technology</option>
+						<option value="Religion">Religion</option>
+						<option value="Reading & Writing">Reading & Writing</option>
+						<option value="Mechanic">Mechanic</option>
+						<option value="Mathematics">Mathematics</option>
+						<option value="English">English</option>
+						<option value="Languages">Languages</option>
+						<option value="Psychology">Psychology</option>
+						<option value="Economics">Economics</option>
+						<option value="Astronomic">Astronomic</option>
+						<option value="Physics">Physics</option>
+						<option value="Chemistry">Chemistry</option>
+						<option value="Science">Science</option>
+						<option value="Management">Management</option>
+						<option value="Health & Wealth">Health & Wealth</option>
+						<option value="Daily Accessories">Daily Accessories</option>
+						<option value="Other">Other</option>
+					</select>
+				</label>
+				<label className="flex flex-col gap-y-2 text-lg">
+					<div className="flex flex-col">
 						<span className="font-medium text-lg">Thumbnail</span>
 						<small className="text-sm text-neutral-500 font-medium dark:text-neutral-300">
 							Image URL
@@ -109,7 +140,7 @@ const CreateAssignmentForm = () => {
 						min={5}
 						max={100}
 						step={5}
-						className="w-40 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
+						className="w-48 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
 						placeholder="100"
 						required
 					/>
@@ -124,7 +155,7 @@ const CreateAssignmentForm = () => {
 					<select
 						name="difficulty"
 						defaultValue="Medium"
-						className="w-40 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
+						className="w-48 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg"
 						required
 					>
 						<option value="Easy">Easy</option>
@@ -132,7 +163,7 @@ const CreateAssignmentForm = () => {
 						<option value="Hard">Hard</option>
 					</select>
 				</label>
-				<label className="flex flex-col gap-y-2">
+				<label className="flex flex-col gap-y-2 text-lg">
 					<div className="flex flex-col">
 						<span className="font-medium text-lg">Due Date</span>
 						<small className="text-sm text-neutral-500 font-medium dark:text-neutral-300">
