@@ -1,4 +1,5 @@
 import Accordion from "../shared/Accordion";
+import { motion } from "motion/react";
 
 const FAQ = () => {
 	const faqs = [
@@ -24,9 +25,21 @@ const FAQ = () => {
 		},
 	];
 	return (
-		<section
+		<motion.section
 			id="faq"
-			className="max-w-8xl mx-auto mt-24 space-y-10"
+			className="max-w-8xl mx-auto mt-40 space-y-12"
+			initial={{
+				scale: 0.4,
+				opacity: 0,
+			}}
+			whileInView={{
+				scale: 1,
+				opacity: 1,
+			}}
+			transition={{
+				duration: 1,
+				type: "spring",
+			}}
 		>
 			{/* Section Heading */}
 			<h2 className="text-4xl font-bold text-center">
@@ -46,7 +59,7 @@ const FAQ = () => {
 					/>
 				))}
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
