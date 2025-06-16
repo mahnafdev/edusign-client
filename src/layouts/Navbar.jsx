@@ -4,9 +4,12 @@ import ToggleTheme from "../components/shared/ToggleTheme";
 import Button from "../components/shared/Button";
 import useAuthContext from "../hooks/useAuthContext";
 import DefaultUserPhoto from "../assets/default-user-photo.png";
+import { FaLayerGroup } from "react-icons/fa6";
+import { useState } from "react";
 
 const Navbar = () => {
 	const { user, loading } = useAuthContext();
+	const [showMenu, setShowMenu] = useState(false);
 	return (
 		<nav
 			id="navbar"
@@ -15,7 +18,7 @@ const Navbar = () => {
 			{/* All Navbar content */}
 			<div
 				id="nav-content"
-				className="lg:max-w-5xl 2xl:max-w-8xl mx-auto flex items-center justify-between"
+				className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto flex items-center justify-between"
 			>
 				{/* Logo and Title */}
 				<NavLink to="/">
@@ -31,10 +34,62 @@ const Navbar = () => {
 						<h4 className="text-2xl font-bold">EduSign</h4>
 					</div>
 				</NavLink>
+				{/* Dropdown Menu */}
+				<div
+					id="mobile-menu"
+					className="relative lg:hidden"
+				>
+					<h5
+						className="text-xl font-medium flex items-center gap-x-2 px-3 py-1 rounded-full hover:bg-primary hover:text-light transition-colors duration-100 cursor-pointer"
+						onClick={() => setShowMenu(!showMenu)}
+					>
+						<FaLayerGroup size={20} />
+						Menu
+					</h5>
+					<div
+						className={`w-max bg-primary-background-light/95 border border-blue-300 dark:bg-[#20202a] dark:border-blue-700 absolute top-10 -left-8 ${
+							showMenu ? "flex flex-col" : "hidden"
+						} font-medium rounded-2xl py-2`}
+					>
+						<NavLink
+							to="/"
+							className="px-4 py-1 rounded-md hover:bg-primary/90 hover:text-light transition-colors duration-100"
+						>
+							Home
+						</NavLink>
+						<NavLink
+							to="/assignments"
+							className="px-4 py-1 rounded-md hover:bg-primary/90 hover:text-light transition-colors duration-100"
+						>
+							Assignments
+						</NavLink>
+						{user ? (
+							<NavLink
+								to="/submissions/pending"
+								className="px-4 py-1 rounded-md hover:bg-primary/90 hover:text-light transition-colors duration-100"
+							>
+								Pending Submissions
+							</NavLink>
+						) : null}
+						<NavLink
+							to="/blogs"
+							className="px-4 py-1 rounded-md hover:bg-primary/90 hover:text-light transition-colors duration-100"
+						>
+							Blogs
+						</NavLink>
+						{user ? (
+							<Button customClasses="w-fit mt-4 ml-4 !py-1">Logout</Button>
+						) : (
+							<NavLink to="/signin">
+								<Button customClasses="w-fit mt-4 ml-4 !py-1">Sign In</Button>
+							</NavLink>
+						)}
+					</div>
+				</div>
 				{/* Links */}
 				<div
 					id="nav-links"
-					className="flex items-center gap-x-2 rounded-full p-2 font-medium bg-primary-background-light dark:bg-primary-background-dark"
+					className="hidden lg:flex items-center gap-x-2 rounded-full p-2 font-medium bg-primary-background-light dark:bg-primary-background-dark"
 				>
 					<NavLink
 						to="/"
@@ -48,12 +103,14 @@ const Navbar = () => {
 					>
 						Assignments
 					</NavLink>
-					<NavLink
-						to="/how-to"
-						className="px-4 py-2 rounded-full hover:bg-primary hover:text-light transition-colors duration-100"
-					>
-						Guide
-					</NavLink>
+					{user ? (
+						<NavLink
+							to="/submissions/pending"
+							className="px-4 py-2 rounded-full hover:bg-primary hover:text-light transition-colors duration-100"
+						>
+							Pending Submissions
+						</NavLink>
+					) : null}
 					<NavLink
 						to="/blogs"
 						className="px-4 py-2 rounded-full hover:bg-primary hover:text-light transition-colors duration-100"
@@ -78,16 +135,16 @@ const Navbar = () => {
 									{user?.fullName}
 								</span>
 							</div>
-							<Button>Logout</Button>
+							<Button customClasses="max-lg:hidden">Logout</Button>
 						</>
 					) : (
-						<NavLink to="/signin">
+						<NavLink
+							to="/signin"
+							className="max-lg:hidden"
+						>
 							<Button>Sign In</Button>
 						</NavLink>
 					)}
-					<NavLink to="/support-contact">
-						<Button>Support</Button>
-					</NavLink>
 					<ToggleTheme buttonClasses="ml-2" />
 				</div>
 			</div>

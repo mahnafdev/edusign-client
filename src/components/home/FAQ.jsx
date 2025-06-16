@@ -27,7 +27,7 @@ const FAQ = () => {
 	return (
 		<motion.section
 			id="faq"
-			className="lg:max-w-5xl 2xl:max-w-8xl mx-auto mt-40 space-y-12"
+			className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto mt-40 space-y-12"
 			initial={{
 				scale: 0.4,
 				opacity: 0,

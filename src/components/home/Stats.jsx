@@ -23,7 +23,7 @@ const Stats = () => {
 	return (
 		<motion.section
 			id="stats"
-			className="mt-40 py-28 bg-[url(https://i.ibb.co/sJF64JXP/stats-bg.jpg)] bg-cover bg-center text-light"
+			className="mt-40 py-20 lg:py-28 bg-[url(https://i.ibb.co/sJF64JXP/stats-bg.jpg)] bg-cover bg-center text-light"
 			initial={{
 				opacity: 0,
 			}}
@@ -36,7 +36,7 @@ const Stats = () => {
 		>
 			<div
 				id="stats-content"
-				className="lg:max-w-5xl 2xl:max-w-7xl mx-auto flex justify-between"
+				className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 place-items-center gap-y-12"
 			>
 				{stats.map((stat) => (
 					<StatCard

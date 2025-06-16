@@ -23,7 +23,7 @@ const ToggleTheme = ({ buttonClasses = "" }) => {
 			className={`cursor-pointer ${buttonClasses}`}
 		>
 			<ThemeIcon
-				size={24}
+				size={26}
 				className="fill-dark dark:fill-light"
 			/>
 		</button>

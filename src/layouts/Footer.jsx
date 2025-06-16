@@ -99,14 +99,6 @@ const Footer = () => {
 							<Link to="/assignments">Assignments</Link>
 						</li>
 						<li className="pl-2 border-l-2 border-l-transparent hover:border-l-primary">
-							<Link
-								to="/how-to"
-								target="_blank"
-							>
-								Usage Guide
-							</Link>
-						</li>
-						<li className="pl-2 border-l-2 border-l-transparent hover:border-l-primary">
 							<a
 								href="https://github.com/sponsors/ninjaquasar"
 								target="_blank"

@@ -7,16 +7,16 @@ const Hero = () => {
 	return (
 		<section
 			id="hero"
-			className="lg:max-w-5xl 2xl:max-w-8xl mx-auto mt-8 space-y-10"
+			className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto lg:mt-8 space-y-10"
 		>
 			{/* Hero Content (above) */}
 			<div
 				id="hero-content"
-				className="flex items-center lg:gap-x-16 2xl:gap-x-24 2xl:max-w-5/6 mx-auto"
+				className="flex flex-col lg:flex-row items-center gap-y-4 lg:gap-x-16 2xl:gap-x-24 max-w-5/6 lg:max-w-full 2xl:max-w-5/6 mx-auto"
 			>
 				{/* Slogan Heading at the left-side */}
 				<motion.h1
-					className="lg:text-4xl 2xl:text-5xl font-bold leading-snug"
+					className="text-5xl lg:text-4xl 2xl:text-5xl font-bold text-center lg:text-start leading-snug"
 					initial={{
 						scale: 0.5,
 						opacity: 0,
@@ -51,23 +51,25 @@ const Hero = () => {
 					The Smarter Way to Solve and Learn Together
 				</motion.h1>
 				{/* Subtext & Call-To-Action at the right-side */}
-				<div className="max-w-1/2 space-y-4">
-					<p className="leading-relaxed">
+				<div className="lg:max-w-1/2 space-y-4">
+					<p className="text-center lg:text-start leading-relaxed">
 						Sign out from the exhausted education system. Sign in to the smarter one
 						by EduSign. Get smarter with our Assignment-based group-study platform.
 					</p>
-					<Link
-						to="/assignments"
-						target="_blank"
-					>
-						<Button fullRounded>Explore Assignments</Button>
-					</Link>
+					<div className="text-center lg:text-start">
+						<Link
+							to="/assignments"
+							target="_blank"
+						>
+							<Button fullRounded>Explore Assignments</Button>
+						</Link>
+					</div>
 				</div>
 			</div>
 			{/* Hero Image (below) */}
 			<div
 				id="hero-image"
-				className="lg:h-[57vh] 2xl:h-[65vh]"
+				className="h-[53vh] lg:h-[57vh] 2xl:h-[65vh]"
 			>
 				<motion.img
 					src={HeroImage}

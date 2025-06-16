@@ -62,7 +62,7 @@ const Features = () => {
 	];
 	return (
 		<motion.section
-			className="lg:max-w-5xl max-w-8xl mx-auto mt-40 space-y-10"
+			className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto mt-40 space-y-10"
 			initial={{
 				scale: 0.4,
 				opacity: 0,
@@ -84,7 +84,7 @@ const Features = () => {
 			{/* Features Grid */}
 			<div
 				role="grid"
-				className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4"
+				className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4"
 			>
 				{features.map((feature) => (
 					<FeatureCard key={feature.title}>{feature}</FeatureCard>
