@@ -32,7 +32,7 @@ const SignUpCard = () => {
 				// Upon success
 				.then((userCredentials) => {
 					// Update user profile
-					updateUserProfile(data.firstName + data.lastName, data.photoURL)
+					updateUserProfile(data.firstName + " " + data.lastName, data.photoURL)
 						// Upon success
 						.then(() => {
 							// Save user to database

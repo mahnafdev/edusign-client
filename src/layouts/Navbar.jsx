@@ -64,14 +64,22 @@ const Navbar = () => {
 				{/* Buttons */}
 				<div
 					id="nav-buttons"
-					className="flex items-center gap-x-2 text-lg font-semibold"
+					className="flex items-center gap-x-2 text-lg font-semibold relative"
 				>
 					{loading || user ? (
-						<img
-							src={loading ? DefaultUserPhoto : user.photoURL}
-							alt="User Photo"
-							className="size-12 object-cover object-center border-2 border-primary rounded-full cursor-pointer"
-						/>
+						<>
+							<div className="group">
+								<img
+									src={loading ? DefaultUserPhoto : user.photoURL}
+									alt="User Photo"
+									className="size-12 object-cover object-center border-2 border-primary rounded-full cursor-pointer"
+								/>
+								<span className="bg-blue-700/20 px-2 py-1 border border-blue-700/60 text-[1rem] font-medium rounded-md absolute top-14 -left-5 hidden opacity-0 group-hover:inline-block group-hover:opacity-100">
+									{user?.fullName}
+								</span>
+							</div>
+							<Button>Logout</Button>
+						</>
 					) : (
 						<NavLink to="/signin">
 							<Button>Sign In</Button>
@@ -80,7 +88,7 @@ const Navbar = () => {
 					<NavLink to="/support-contact">
 						<Button>Support</Button>
 					</NavLink>
-					<ToggleTheme buttonClasses="ml-4" />
+					<ToggleTheme buttonClasses="ml-2" />
 				</div>
 			</div>
 		</nav>
