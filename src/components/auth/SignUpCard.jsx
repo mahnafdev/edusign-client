@@ -3,6 +3,7 @@ import useAuthContext from "../../hooks/useAuthContext";
 import toast from "react-hot-toast";
 import GoogleSignIn from "./GoogleSignIn";
 import Button from "../shared/Button";
+import api from "../../services/apiClient";
 
 const SignUpCard = () => {
 	const { signUpUser, updateUserProfile } = useAuthContext();
@@ -34,8 +35,22 @@ const SignUpCard = () => {
 					updateUserProfile(data.firstName + data.lastName, data.photoURL)
 						// Upon success
 						.then(() => {
-							toast.success("Created your account successfully!");
-							navigate("/success/account-create");
+							// Save user to database
+							const formattedData = {
+								first_name: data.firstName,
+								last_name: data.lastName,
+								photo_url: data.photoURL,
+								email: data.email,
+								password: data.password,
+							};
+							api.post("/users", formattedData)
+								// Upon success
+								.then((res) => {
+									toast.success("Created your account successfully!");
+									navigate("/success/account-create");
+								})
+								// Upon error
+								.catch((error) => toast.error(error.message));
 						})
 						// Upon error
 						.catch((error) => toast.error(error.message));
