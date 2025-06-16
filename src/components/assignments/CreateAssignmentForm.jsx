@@ -6,6 +6,7 @@ import api from "../../services/apiClient";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
 import Button from "../shared/Button";
+import useAuthContext from "../../hooks/useAuthContext";
 
 const CreateAssignmentForm = () => {
 	// Initial Date for custom Date-picker
@@ -13,6 +14,8 @@ const CreateAssignmentForm = () => {
 	// Current Date for posted_date
 	const date = new Date();
 	const currentDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+	// User data for user email
+	const { user } = useAuthContext();
 	// Navigation function
 	const navigate = useNavigate();
 	const handleCreate = (e) => {
@@ -25,6 +28,7 @@ const CreateAssignmentForm = () => {
 		// Process data
 		data.total_marks = Number(data.total_marks);
 		data.posted_date = currentDate;
+		data.user = user.email;
 		// Send data to server/database
 		api.post("/assignments", data)
 			.then((res) => {

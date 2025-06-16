@@ -11,6 +11,7 @@ import SignInSuccess from "../pages/SignInSuccess";
 import CreateAssignmentSuccess from "../pages/CreateAssignmentSuccess";
 import UpdateAssignment from "../pages/UpdateAssignment";
 import TakeAssignment from "../pages/TakeAssignment";
+import MySubmissions from "../pages/MySubmissions";
 
 const Router = createBrowserRouter([
 	{
@@ -50,6 +51,11 @@ const Router = createBrowserRouter([
 			{
 				path: "/assignments/submit/:id",
 				Component: TakeAssignment,
+			},
+			// Submission routes
+			{
+				path: "/submissions/mine",
+				Component: MySubmissions,
 			},
 			// Success routes
 			{

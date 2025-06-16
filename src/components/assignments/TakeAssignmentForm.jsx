@@ -2,9 +2,11 @@ import toast from "react-hot-toast";
 import api from "../../services/apiClient";
 import Button from "../shared/Button";
 import { useNavigate, useParams } from "react-router";
+import useAuthContext from "../../hooks/useAuthContext";
 
 const TakeAssignmentForm = () => {
 	const { id: assignmentId } = useParams();
+	const { user } = useAuthContext();
 	const navigate = useNavigate();
 	const handleSubmit = (e) => {
 		// Prevent site reload
@@ -15,6 +17,7 @@ const TakeAssignmentForm = () => {
 		const data = Object.fromEntries(formData.entries());
 		// Process data
 		data.assignment_id = assignmentId;
+		data.user_email = user.email;
 		data.status = "Pending";
 		data.obtained_marks = 0;
 		data.examiner_feedback = "";
@@ -51,7 +54,7 @@ const TakeAssignmentForm = () => {
 					</div>
 					<input
 						type="url"
-						name="submissionDoc"
+						name="submission_doc"
 						className="bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
 						placeholder="https://docs.google.com/document"
 						required
