@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import AssignmentCard from "../components/shared/AssignmentCard";
 import api from "../services/apiClient";
 import toast from "react-hot-toast";
+import Loader from "../components/shared/Loader";
 
 const ViewAssignments = () => {
 	const [assignments, setAssignments] = useState(null);
+	const [loading, setLoading] = useState(true);
 	const [difficulty, setDifficulty] = useState("");
 	const [subject, setSubject] = useState("");
 	const [search, setSearch] = useState("");
@@ -33,8 +35,14 @@ const ViewAssignments = () => {
 	};
 	useEffect(() => {
 		api.get("/assignments")
-			.then((res) => setAssignments(res.data))
-			.catch((error) => console.log(error));
+			.then((res) => {
+				setAssignments(res.data);
+				setLoading(false);
+			})
+			.catch((error) => {
+				toast.error(error.message);
+				setLoading(false);
+			});
 	}, []);
 	return (
 		<main className="py-24">
@@ -105,10 +113,14 @@ const ViewAssignments = () => {
 					</label>
 				</div>
 				{/* Assignments List */}
-				<div className="flex flex-col gap-y-4">
-					{assignments?.map((assignment) => (
-						<AssignmentCard key={assignment._id}>{assignment}</AssignmentCard>
-					))}
+				<div className="flex flex-col gap-y-6">
+					{loading ? (
+						<Loader count={2} />
+					) : (
+						assignments.map((assignment) => (
+							<AssignmentCard key={assignment._id}>{assignment}</AssignmentCard>
+						))
+					)}
 				</div>
 			</section>
 		</main>
