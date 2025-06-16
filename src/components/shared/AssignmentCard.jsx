@@ -41,12 +41,12 @@ const AssignmentCard = ({ children: assignment }) => {
 			<img
 				src={thumbnail}
 				alt="Thumbnail Image"
-				className="col-span-2 h-full rounded-l-3xl"
+				className="col-span-2 h-full rounded-l-3xl object-cover object-center"
 			/>
 			{/* Other Information */}
 			<div className="col-span-4 my-4 mr-12 space-y-4">
 				{/* Title */}
-				<h3 className="text-3xl font-semibold">{title}</h3>
+				<h3 className="lg:text-2xl 2xl:text-3xl font-semibold">{title}</h3>
 				<div className="flex items-center gap-x-2 text-lg">
 					{/* Total Marks */}
 					<p

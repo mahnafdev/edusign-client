@@ -36,7 +36,7 @@ const Stats = () => {
 		>
 			<div
 				id="stats-content"
-				className="max-w-7xl mx-auto flex justify-between"
+				className="lg:max-w-5xl 2xl:max-w-7xl mx-auto flex justify-between"
 			>
 				{stats.map((stat) => (
 					<StatCard

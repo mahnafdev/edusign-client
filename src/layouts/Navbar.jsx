@@ -15,7 +15,7 @@ const Navbar = () => {
 			{/* All Navbar content */}
 			<div
 				id="nav-content"
-				className="max-w-8xl mx-auto flex items-center justify-between"
+				className="lg:max-w-5xl 2xl:max-w-8xl mx-auto flex items-center justify-between"
 			>
 				{/* Logo and Title */}
 				<NavLink to="/">

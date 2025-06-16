@@ -7,16 +7,16 @@ const Hero = () => {
 	return (
 		<section
 			id="hero"
-			className="max-w-8xl mx-auto mt-8 space-y-10"
+			className="lg:max-w-5xl 2xl:max-w-8xl mx-auto mt-8 space-y-10"
 		>
 			{/* Hero Content (above) */}
 			<div
 				id="hero-content"
-				className="flex items-center gap-x-24 max-w-5/6 mx-auto"
+				className="flex items-center lg:gap-x-16 2xl:gap-x-24 2xl:max-w-5/6 mx-auto"
 			>
 				{/* Slogan Heading at the left-side */}
 				<motion.h1
-					className="text-5xl font-bold leading-snug"
+					className="lg:text-4xl 2xl:text-5xl font-bold leading-snug"
 					initial={{
 						scale: 0.5,
 						opacity: 0,
@@ -51,7 +51,7 @@ const Hero = () => {
 					The Smarter Way to Solve and Learn Together
 				</motion.h1>
 				{/* Subtext & Call-To-Action at the right-side */}
-				<div className="space-y-4">
+				<div className="max-w-1/2 space-y-4">
 					<p className="leading-relaxed">
 						Sign out from the exhausted education system. Sign in to the smarter one
 						by EduSign. Get smarter with our Assignment-based group-study platform.
@@ -67,7 +67,7 @@ const Hero = () => {
 			{/* Hero Image (below) */}
 			<div
 				id="hero-image"
-				className="h-[65vh]"
+				className="lg:h-[57vh] 2xl:h-[65vh]"
 			>
 				<motion.img
 					src={HeroImage}

@@ -3,7 +3,7 @@ import CreateAssignmentForm from "../components/assignments/CreateAssignmentForm
 const CreateAssignment = () => {
 	return (
 		<main className="py-28">
-			<section className="max-w-7xl mx-auto flex items-center justify-between">
+			<section className="lg:max-w-5xl 2xl:max-w-7xl mx-auto flex items-center justify-between">
 				{/* Form */}
 				<CreateAssignmentForm />
 				{/* Image */}

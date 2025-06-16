@@ -19,7 +19,7 @@ const MySubmissions = () => {
 	}, [user]);
 	return (
 		<main className="py-24">
-			<section className="max-w-8xl mx-auto space-y-12">
+			<section className="lg:max-w-5xl 2xl:max-w-8xl mx-auto space-y-12">
 				{/* Heading Text */}
 				<h2 className="text-4xl font-bold text-center text-primary">
 					My Assignment Submissions

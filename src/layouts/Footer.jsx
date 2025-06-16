@@ -20,7 +20,7 @@ const Footer = () => {
 			{/* Footer Content */}
 			<div
 				id="footer-content"
-				className="max-w-8xl mx-auto py-24 flex justify-between"
+				className="lg:max-w-6xl 2xl:max-w-8xl mx-auto py-24 flex justify-between"
 			>
 				{/* Logo and Slogan */}
 				<div className="space-y-4">

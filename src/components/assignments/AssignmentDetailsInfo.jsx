@@ -16,7 +16,7 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 	} = assignment;
 	const passing_marks = (total_marks / 10) * 8;
 	return (
-		<section className="max-w-8xl mx-auto space-y-12">
+		<section className="lg:max-w-5xl 2xl:max-w-8xl mx-auto space-y-12">
 			{/* Basic Info */}
 			<div className="grid grid-cols-8 gap-6 items-center">
 				{/* Thumbnail Image */}
@@ -27,9 +27,9 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 						className="object-cover object-center rounded-l-3xl rounded-r-lg w-full h-full hover:scale-105 transition-transform duration-300"
 					/>
 				</div>
-				<div className="col-span-5 space-y-6">
+				<div className="col-span-5 lg:space-y-4 2xl:space-y-6">
 					{/* Title */}
-					<h2 className="text-4xl font-semibold">{title}</h2>
+					<h2 className="lg:text-3xl 2xl:text-4xl font-semibold">{title}</h2>
 					{/* Subject */}
 					<p
 						title="Subject"
