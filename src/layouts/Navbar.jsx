@@ -2,8 +2,11 @@ import { NavLink } from "react-router";
 import Logo from "../assets/logo.png";
 import ToggleTheme from "../components/shared/ToggleTheme";
 import Button from "../components/shared/Button";
+import useAuthContext from "../hooks/useAuthContext";
+import DefaultUserPhoto from "../assets/default-user-photo.png";
 
 const Navbar = () => {
+	const { user, loading } = useAuthContext();
 	return (
 		<nav
 			id="navbar"
@@ -63,9 +66,17 @@ const Navbar = () => {
 					id="nav-buttons"
 					className="flex items-center gap-x-2 text-lg font-semibold"
 				>
-					<NavLink to="/signin">
-						<Button>Sign In</Button>
-					</NavLink>
+					{loading || user ? (
+						<img
+							src={loading ? DefaultUserPhoto : user.photoURL}
+							alt="User Photo"
+							className="size-12 object-cover object-center border-2 border-primary rounded-full cursor-pointer"
+						/>
+					) : (
+						<NavLink to="/signin">
+							<Button>Sign In</Button>
+						</NavLink>
+					)}
 					<NavLink to="/support-contact">
 						<Button>Support</Button>
 					</NavLink>
