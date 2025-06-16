@@ -1,6 +1,11 @@
+import toast from "react-hot-toast";
+import api from "../../services/apiClient";
 import Button from "../shared/Button";
+import { useNavigate, useParams } from "react-router";
 
 const TakeAssignmentForm = () => {
+	const { id: assignmentId } = useParams();
+	const navigate = useNavigate();
 	const handleSubmit = (e) => {
 		// Prevent site reload
 		e.preventDefault();
@@ -8,11 +13,24 @@ const TakeAssignmentForm = () => {
 		const form = e.target;
 		const formData = new FormData(form);
 		const data = Object.fromEntries(formData.entries());
-		// Format data
+		// Process data
+		data.assignment_id = assignmentId;
 		data.status = "Pending";
 		data.obtained_marks = 0;
 		data.examiner_feedback = "";
-		console.log(data);
+		// Send data to server/database
+		api.post("/submissions", data)
+			.then((res) => {
+				const isInserted = res.data.insertedId;
+				// Successful insertion confirmation
+				if (isInserted) {
+					toast.success("Assignment submitted successfully!");
+					navigate("/submissions/mine");
+				} else {
+					toast.error("Something went wrong! Please try again.");
+				}
+			})
+			.catch((error) => toast.error(error.message));
 	};
 	return (
 		<div className="w-3/5">
