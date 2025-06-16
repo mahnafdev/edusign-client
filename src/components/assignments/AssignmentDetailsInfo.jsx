@@ -1,7 +1,10 @@
 import { FaCalendarDay, FaCalendarPlus, FaSignal, FaStar, FaTrophy } from "react-icons/fa6";
+import Button from "../shared/Button";
+import { Link } from "react-router";
 
 const AssignmentDetailsInfo = ({ assignment }) => {
 	const {
+		_id,
 		thumbnail,
 		title,
 		subject,
@@ -34,6 +37,13 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 					>
 						{subject}
 					</p>
+					{/* Actions */}
+					<Link
+						to={`/assignments/submit/${_id}`}
+						target="_blank"
+					>
+						<Button customClasses="text-[1rem]">Take Assignment</Button>
+					</Link>
 				</div>
 			</div>
 			{/* Key Info */}

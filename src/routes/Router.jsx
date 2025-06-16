@@ -10,6 +10,7 @@ import SignUpSuccess from "../pages/SignUpSuccess";
 import SignInSuccess from "../pages/SignInSuccess";
 import CreateAssignmentSuccess from "../pages/CreateAssignmentSuccess";
 import UpdateAssignment from "../pages/UpdateAssignment";
+import TakeAssignment from "../pages/TakeAssignment";
 
 const Router = createBrowserRouter([
 	{
@@ -45,6 +46,10 @@ const Router = createBrowserRouter([
 			{
 				path: "/assignments/update/:id",
 				Component: UpdateAssignment,
+			},
+			{
+				path: "/assignments/submit/:id",
+				Component: TakeAssignment,
 			},
 			// Success routes
 			{

@@ -115,7 +115,7 @@ const ViewAssignments = () => {
 				{/* Assignments List */}
 				<div className="flex flex-col gap-y-6">
 					{loading ? (
-						<Loader count={2} />
+						<Loader count={3} />
 					) : (
 						assignments.map((assignment) => (
 							<AssignmentCard key={assignment._id}>{assignment}</AssignmentCard>
