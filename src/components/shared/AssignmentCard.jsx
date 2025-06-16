@@ -36,17 +36,17 @@ const AssignmentCard = ({ children: assignment }) => {
 		});
 	};
 	return (
-		<div className="bg-primary-background-light dark:bg-[#20202a] border border-neutral-300 dark:border-neutral-700 rounded-3xl grid grid-cols-6 items-center gap-8">
+		<div className="bg-primary-background-light dark:bg-[#20202a] border border-neutral-300 dark:border-neutral-700 rounded-3xl grid grid-cols-1 lg:grid-cols-6 items-center gap-x-8 gap-y-2">
 			{/* Thumbnail Image */}
 			<img
 				src={thumbnail}
 				alt="Thumbnail Image"
-				className="col-span-2 h-full rounded-l-3xl object-cover object-center"
+				className="lg:col-span-2 w-full h-64 lg:h-full lg:rounded-l-3xl max-lg:rounded-t-3xl object-cover object-center"
 			/>
 			{/* Other Information */}
-			<div className="col-span-4 my-4 mr-12 space-y-4">
+			<div className="lg:col-span-4 my-4 mx-6 lg:mr-12 space-y-4">
 				{/* Title */}
-				<h3 className="lg:text-2xl 2xl:text-3xl font-semibold">{title}</h3>
+				<h3 className="text-2xl 2xl:text-3xl font-semibold">{title}</h3>
 				<div className="flex items-center gap-x-2 text-lg">
 					{/* Total Marks */}
 					<p

@@ -46,9 +46,9 @@ const ViewAssignments = () => {
 	}, []);
 	return (
 		<main className="py-24">
-			<section className="lg:max-w-5xl 2xl:max-w-8xl mx-auto">
+			<section className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto">
 				{/* Heading Text */}
-				<h2 className="text-4xl font-bold text-center text-primary mb-4">
+				<h2 className="text-4xl font-bold text-center text-primary mb-8">
 					View Assignments
 				</h2>
 				{/* Filter & Search */}

@@ -36,13 +36,13 @@ const TakeAssignmentForm = () => {
 			.catch((error) => toast.error(error.message));
 	};
 	return (
-		<div className="w-3/5">
+		<div className="lg:w-3/5">
 			<h3 className="text-3xl font-bold text-primary-dark dark:text-primary-light mb-4">
 				Submit Assignment
 			</h3>
 			{/* Form */}
 			<form
-				className="max-w-2/3 space-y-2"
+				className="lg:max-w-2/3 space-y-2"
 				onSubmit={handleSubmit}
 			>
 				<label className="flex flex-col gap-y-2 text-lg">

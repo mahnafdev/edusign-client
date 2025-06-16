@@ -19,12 +19,12 @@ const MySubmissions = () => {
 	}, [user]);
 	return (
 		<main className="py-24">
-			<section className="lg:max-w-5xl 2xl:max-w-8xl mx-auto space-y-12">
+			<section className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto space-y-12">
 				{/* Heading Text */}
 				<h2 className="text-4xl font-bold text-center text-primary">
 					My Assignment Submissions
 				</h2>
-				<div className="grid grid-cols-2 gap-6">
+				<div className="grid lg:grid-cols-2 gap-6">
 					{loading ? (
 						<Loader
 							type="mySubmissionCard"

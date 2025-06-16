@@ -16,20 +16,20 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 	} = assignment;
 	const passing_marks = (total_marks / 10) * 8;
 	return (
-		<section className="lg:max-w-5xl 2xl:max-w-8xl mx-auto space-y-12">
+		<section className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto space-y-8 lg:space-y-12">
 			{/* Basic Info */}
-			<div className="grid grid-cols-8 gap-6 items-center">
+			<div className="grid grid-cols-1 lg:grid-cols-8 gap-x-6 gap-y-2 items-center">
 				{/* Thumbnail Image */}
-				<div className="col-span-3 rounded-l-3xl rounded-r-lg aspect-[2/1] overflow-hidden">
+				<div className="lg:col-span-3 rounded-l-3xl rounded-r-lg aspect-[2/1] overflow-hidden">
 					<img
 						src={thumbnail}
 						alt="Thumbnail Image"
-						className="object-cover object-center rounded-l-3xl rounded-r-lg w-full h-full hover:scale-105 transition-transform duration-300"
+						className="object-cover object-center rounded-l-3xl rounded-r-lg w-full h-80 lg:h-full hover:scale-105 transition-transform duration-300"
 					/>
 				</div>
-				<div className="col-span-5 lg:space-y-4 2xl:space-y-6">
+				<div className="lg:col-span-5 space-y-3 lg:space-y-4 2xl:space-y-6">
 					{/* Title */}
-					<h2 className="lg:text-3xl 2xl:text-4xl font-semibold">{title}</h2>
+					<h2 className="text-3xl 2xl:text-4xl font-semibold">{title}</h2>
 					{/* Subject */}
 					<p
 						title="Subject"
