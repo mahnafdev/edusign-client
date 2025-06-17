@@ -12,6 +12,7 @@ import CreateAssignmentSuccess from "../pages/CreateAssignmentSuccess";
 import UpdateAssignment from "../pages/UpdateAssignment";
 import TakeAssignment from "../pages/TakeAssignment";
 import MySubmissions from "../pages/MySubmissions";
+import PendingSubmissions from "../pages/PendingSubmissions";
 
 const Router = createBrowserRouter([
 	{
@@ -56,6 +57,10 @@ const Router = createBrowserRouter([
 			{
 				path: "/submissions/mine",
 				Component: MySubmissions,
+			},
+			{
+				path: "/submissions/pending",
+				Component: PendingSubmissions,
 			},
 			// Success routes
 			{
