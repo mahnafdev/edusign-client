@@ -10,6 +10,7 @@ import { useState } from "react";
 const Navbar = () => {
 	const { user, loading } = useAuthContext();
 	const [showMenu, setShowMenu] = useState(false);
+	const [showProfileDropdown, setShowProfileDropdown] = useState(false);
 	return (
 		<nav
 			id="navbar"
@@ -130,10 +131,32 @@ const Navbar = () => {
 									src={loading ? DefaultUserPhoto : user.photoURL}
 									alt="User Photo"
 									className="size-12 object-cover object-center border-2 border-primary rounded-full cursor-pointer"
+									onClick={() => setShowProfileDropdown(!showProfileDropdown)}
 								/>
 								<span className="bg-blue-700/20 px-2 py-1 border border-blue-700/60 text-[1rem] font-medium rounded-md absolute top-14 -left-5 hidden opacity-0 group-hover:inline-block group-hover:opacity-100">
 									{user?.fullName}
 								</span>
+								<div
+									className={`w-max bg-primary-background-light/95 border border-blue-300 dark:bg-[#20202a] dark:border-blue-700 absolute top-14 -left-4 ${
+										showProfileDropdown ? "flex flex-col" : "hidden"
+									} font-medium rounded-2xl py-2`}
+								>
+									<NavLink
+										to="/assignments/create"
+										className="px-4 py-1 rounded-md hover:bg-primary/90 hover:text-light transition-colors duration-100"
+									>
+										Create Assignment
+									</NavLink>
+									<NavLink
+										to="/submissions/mine"
+										className="px-4 py-1 rounded-md hover:bg-primary/90 hover:text-light transition-colors duration-100"
+									>
+										My Submissions
+									</NavLink>
+									<Button customClasses="w-fit mt-2 ml-4 !py-1">
+										Logout
+									</Button>
+								</div>
 							</div>
 							<Button customClasses="max-lg:hidden">Logout</Button>
 						</>

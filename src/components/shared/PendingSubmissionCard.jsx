@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { FaCoins, FaStar, FaVial } from "react-icons/fa6";
+import { FaStar, FaUserGraduate } from "react-icons/fa6";
 import api from "../../services/apiClient";
 import toast from "react-hot-toast";
 import Button from "./Button";
+import { Link } from "react-router";
 
 const PendingSubmissionCard = ({ children: submission }) => {
 	const [assignment, setAssignment] = useState({});
 	const [user, setUser] = useState({});
-	const { assignment_id, user_email } = submission;
+	const { _id, assignment_id, user_email } = submission;
 	const { title, total_marks } = assignment;
 	useEffect(() => {
 		api.get(`/assignments/${assignment_id}`)
@@ -19,7 +20,7 @@ const PendingSubmissionCard = ({ children: submission }) => {
 			});
 		api.get(`/users?email=${user_email}`)
 			.then((res) => {
-				setUser(res.data);
+				setUser(res.data[0]);
 			})
 			.catch((error) => {
 				toast.error(error.message);
@@ -43,8 +44,22 @@ const PendingSubmissionCard = ({ children: submission }) => {
 					{total_marks}
 				</p>
 				{/* Examinee */}
+				<p className="text-lg rounded-lg flex items-center gap-x-2">
+					<FaUserGraduate
+						size={18}
+						className="fill-primary-background-dark dark:fill-primary-background-light"
+					/>
+					<span className="font-semibold">Examinee:</span>
+					{user.first_name + " " + user.last_name}
+				</p>
+				{/* Actions */}
 				<div className="text-end">
-					<Button>Give Marks</Button>
+					<Link
+						to={`/submissions/give-marks/${_id}`}
+						target="_blank"
+					>
+						<Button>Give Marks</Button>
+					</Link>
 				</div>
 			</div>
 		</div>

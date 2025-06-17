@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import Loader from "../components/shared/Loader";
 
 const ViewAssignments = () => {
-	const [assignments, setAssignments] = useState(null);
+	const [assignments, setAssignments] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [difficulty, setDifficulty] = useState("");
 	const [subject, setSubject] = useState("");

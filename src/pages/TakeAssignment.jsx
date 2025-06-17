@@ -8,7 +8,7 @@ const TakeAssignment = () => {
 			<section className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-y-8">
 				{/* Form */}
 				<TakeAssignmentForm />
-				{/* Image */}
+				{/* Lottie Animation */}
 				<Lottie
 					animationData={TakeAssignmentLottie}
 					className="w-sm lg:w-md"

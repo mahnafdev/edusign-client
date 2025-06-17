@@ -9,7 +9,9 @@ const MySubmissions = () => {
 	const [submissions, setSubmissions] = useState([]);
 	const { user, loading } = useAuthContext();
 	useEffect(() => {
-		api.get(`/submissions?user_email=${user?.email}`)
+		api.get(`/submissions?user_email=${user?.email}`, {
+			withCredentials: true,
+		})
 			.then((res) => {
 				setSubmissions(res.data);
 			})
