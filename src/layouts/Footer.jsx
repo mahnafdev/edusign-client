@@ -49,11 +49,11 @@ const Footer = () => {
 						</li>
 						<li className="flex items-center gap-x-2">
 							<FaMessage />
-							promahnaf@gmail.com
+							riaurko@gmail.com
 						</li>
 						<li className="flex items-center gap-x-2">
 							<FaPhone />
-							880-1710-243940
+							880-1717-549249
 						</li>
 					</ul>
 				</div>
@@ -100,7 +100,7 @@ const Footer = () => {
 						</li>
 						<li className="pl-2 border-l-2 border-l-transparent hover:border-l-primary">
 							<a
-								href="https://github.com/sponsors/ninjaquasar"
+								href="https://github.com/sponsors/riaurko"
 								target="_blank"
 							>
 								Become a Collaborator
@@ -123,7 +123,7 @@ const Footer = () => {
 					</h5>
 					<div className="flex gap-x-2">
 						<a
-							href="https://github.com/ninjaquasar"
+							href="https://github.com/riaurko"
 							title="Follow - GitHub"
 						>
 							<Button customClasses="!px-3 aspect-square">
@@ -131,7 +131,7 @@ const Footer = () => {
 							</Button>
 						</a>
 						<a
-							href="https://youtube.com/@ninjaquasar"
+							href="https://youtube.com/@riaurko"
 							title="Subscribe - YouTube"
 						>
 							<Button customClasses="!px-3 aspect-square">
@@ -139,7 +139,7 @@ const Footer = () => {
 							</Button>
 						</a>
 						<a
-							href="https://facebook.com/ninjaquasar"
+							href="https://facebook.com/riaurko"
 							title="Follow - Facebook"
 						>
 							<Button customClasses="!px-3 aspect-square">
@@ -147,7 +147,7 @@ const Footer = () => {
 							</Button>
 						</a>
 						<a
-							href="https://t.me/ninjaquasar"
+							href="https://t.me/riaurko"
 							title="Message - Telegram"
 						>
 							<Button customClasses="!px-3 aspect-square">

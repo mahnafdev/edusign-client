@@ -4,6 +4,7 @@ import {
 	onAuthStateChanged,
 	signInWithEmailAndPassword,
 	signInWithPopup,
+	signOut,
 	updateProfile,
 } from "firebase/auth";
 import { auth } from "../../config/firebase.config";
@@ -23,6 +24,9 @@ const useAuth = () => {
 	const signInUserWithGoogle = () => {
 		const provider = new GoogleAuthProvider();
 		return signInWithPopup(auth, provider);
+	};
+	const signOutUser = () => {
+		return signOut(auth);
 	};
 	const updateUserProfile = (displayName, photoURL) => {
 		const newProfile = { displayName, photoURL };
@@ -44,19 +48,27 @@ const useAuth = () => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 			getUserProfile(currentUser);
 			setLoading(false);
-			if (currentUser?.email) {
-				const userData = { email: currentUser.email };
-				api.post("/jwt", userData, {
-					withCredentials: true,
-				})
-					.then((res) => {
-						console.log(res.data);
-					})
-					.catch((error) => toast.error(error.message));
-			}
+			// if (currentUser?.email) {
+			// 	const userData = { email: currentUser.email };
+			// 	api.post("/jwt", userData, {
+			// 		withCredentials: true,
+			// 	})
+			// 		.then((res) => {
+			// 			console.log(res.data);
+			// 		})
+			// 		.catch((error) => toast.error(error.message));
+			// }
 		});
 	}, []);
-	return { signUpUser, signInUser, signInUserWithGoogle, updateUserProfile, user, loading };
+	return {
+		signUpUser,
+		signInUser,
+		signInUserWithGoogle,
+		signOutUser,
+		updateUserProfile,
+		user,
+		loading,
+	};
 };
 
 export default useAuth;

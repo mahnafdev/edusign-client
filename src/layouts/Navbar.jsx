@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import Logo from "../assets/logo.png";
 import ToggleTheme from "../components/shared/ToggleTheme";
 import Button from "../components/shared/Button";
@@ -6,11 +6,23 @@ import useAuthContext from "../hooks/useAuthContext";
 import DefaultUserPhoto from "../assets/default-user-photo.png";
 import { FaLayerGroup } from "react-icons/fa6";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
-	const { user, loading } = useAuthContext();
+	const { user, loading, signOutUser } = useAuthContext();
 	const [showMenu, setShowMenu] = useState(false);
 	const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+	const navigate = useNavigate();
+	const handleLogout = () => {
+		signOutUser()
+			.then((userCredentials) => {
+				toast.success("Logged out successfully!");
+				navigate("/signin");
+			})
+			.catch((error) => {
+				toast.error(error.message);
+			});
+	};
 	return (
 		<nav
 			id="navbar"
@@ -79,7 +91,12 @@ const Navbar = () => {
 							Blogs
 						</NavLink>
 						{user ? (
-							<Button customClasses="w-fit mt-4 ml-4 !py-1">Logout</Button>
+							<Button
+								customClasses="w-fit mt-4 ml-4 !py-1"
+								onClick={handleLogout}
+							>
+								Logout
+							</Button>
 						) : (
 							<NavLink to="/signin">
 								<Button customClasses="w-fit mt-4 ml-4 !py-1">Sign In</Button>
@@ -158,7 +175,12 @@ const Navbar = () => {
 									</Button>
 								</div>
 							</div>
-							<Button customClasses="max-lg:hidden">Logout</Button>
+							<Button
+								customClasses="max-lg:hidden"
+								onClick={handleLogout}
+							>
+								Logout
+							</Button>
 						</>
 					) : (
 						<NavLink
