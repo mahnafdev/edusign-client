@@ -3,37 +3,49 @@ import { FaCalendar, FaEye, FaPenToSquare, FaStar, FaTrashCan } from "react-icon
 import { NavLink } from "react-router";
 import Swal from "sweetalert2";
 import api from "../../services/apiClient";
+import useAuthContext from "../../hooks/useAuthContext";
 
 const AssignmentCard = ({ children: assignment }) => {
-	const { _id, thumbnail, title, description, total_marks, due_date } = assignment;
+	const {
+		_id,
+		user: user_email,
+		thumbnail,
+		title,
+		description,
+		total_marks,
+		due_date,
+	} = assignment;
+	const { user: currentUser } = useAuthContext();
 	const handleDelete = () => {
-		const currentTheme = localStorage.getItem("theme");
-		Swal.fire({
-			theme: currentTheme,
-			icon: "question",
-			iconColor: "var(--color-primary)",
-			titleText: "Are you sure?",
-			text: "The deletion is irreversible!",
-			confirmButtonText: "Yes, Delete",
-			showDenyButton: true,
-			denyButtonText: "No, Cancel",
-			denyButtonColor: "#dc3535",
-			customClass: {
-				popup: "!rounded-xl",
-				confirmButton:
-					"!py-2 !bg-primary !rounded-lg !border !border-b-4 !border-blue-700 hover:!border-t-4 hover:!border-b active:!brightness-115 !transition-all !duration-200",
-				denyButton:
-					"!py-2 !rounded-lg !border !border-b-4 !border-red-800 hover:!border-t-4 hover:!border-b active:!brightness-115 !transition-all !duration-200",
-			},
-		}).then((result) => {
-			if (result.isConfirmed) {
-				api.delete(`/assignments/${_id}`).then((res) => {
-					if (res.data.deletedCount)
-						toast.success("Assignment deleted successfully!");
-					else toast.error("Something went wrong! Please try again.");
-				});
-			}
-		});
+		if (user_email === currentUser.email) {
+			const currentTheme = localStorage.getItem("theme");
+			Swal.fire({
+				theme: currentTheme,
+				icon: "question",
+				iconColor: "var(--color-primary)",
+				titleText: "Are you sure?",
+				text: "The deletion is irreversible!",
+				confirmButtonText: "Yes, Delete",
+				showDenyButton: true,
+				denyButtonText: "No, Cancel",
+				denyButtonColor: "#dc3535",
+				customClass: {
+					popup: "!rounded-xl",
+					confirmButton:
+						"!py-2 !bg-primary !rounded-lg !border !border-b-4 !border-blue-700 hover:!border-t-4 hover:!border-b active:!brightness-115 !transition-all !duration-200",
+					denyButton:
+						"!py-2 !rounded-lg !border !border-b-4 !border-red-800 hover:!border-t-4 hover:!border-b active:!brightness-115 !transition-all !duration-200",
+				},
+			}).then((result) => {
+				if (result.isConfirmed) {
+					api.delete(`/assignments/${_id}`).then((res) => {
+						if (res.status === 204)
+							toast.success("Assignment deleted successfully!");
+						else toast.error("Something went wrong! Please try again.");
+					});
+				}
+			});
+		} else toast.error("You can't delete this assignment since you haven't created it.");
 	};
 	return (
 		<div className="bg-primary-background-light dark:bg-[#20202a] border border-neutral-300 dark:border-neutral-700 rounded-3xl grid grid-cols-1 lg:grid-cols-6 items-center gap-x-8 gap-y-2">

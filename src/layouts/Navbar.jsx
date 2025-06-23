@@ -149,6 +149,7 @@ const Navbar = () => {
 									alt="User Photo"
 									className="size-12 object-cover object-center border-2 border-primary rounded-full cursor-pointer"
 									onClick={() => setShowProfileDropdown(!showProfileDropdown)}
+									referrerPolicy="no-referrer"
 								/>
 								<span className="bg-blue-700/20 px-2 py-1 border border-blue-700/60 text-[1rem] font-medium rounded-md absolute top-14 -left-5 hidden opacity-0 group-hover:inline-block group-hover:opacity-100">
 									{user?.fullName}

@@ -2,13 +2,16 @@ import { FaGoogle } from "react-icons/fa6";
 import useAuthContext from "../../hooks/useAuthContext";
 import toast from "react-hot-toast";
 import Button from "../shared/Button";
+import { useNavigate } from "react-router";
 
 const GoogleSignIn = () => {
 	const { signInUserWithGoogle } = useAuthContext();
+	const navigate = useNavigate();
 	const handleSignIn = () => {
 		signInUserWithGoogle()
 			.then((userCredentials) => {
 				toast.success("Successfully logged in to your account with Google!");
+				navigate("/success/authenticate");
 			})
 			.catch((error) => {
 				toast.error(error.message);
