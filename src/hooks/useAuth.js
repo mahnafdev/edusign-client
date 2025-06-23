@@ -9,8 +9,6 @@ import {
 } from "firebase/auth";
 import { auth } from "../../config/firebase.config";
 import { useEffect, useState } from "react";
-import api from "../services/apiClient";
-import toast from "react-hot-toast";
 
 const useAuth = () => {
 	const [user, setUser] = useState(null);

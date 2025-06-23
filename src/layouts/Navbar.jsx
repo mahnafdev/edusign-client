@@ -170,9 +170,6 @@ const Navbar = () => {
 									>
 										My Submissions
 									</NavLink>
-									<Button customClasses="w-fit mt-2 ml-4 !py-1">
-										Logout
-									</Button>
 								</div>
 							</div>
 							<Button
