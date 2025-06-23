@@ -7,7 +7,7 @@ import PendingSubmissionCard from "../components/shared/PendingSubmissionCard";
 
 const PendingSubmissions = () => {
 	const [submissions, setSubmissions] = useState([]);
-	const { user, loading } = useAuthContext();
+	const { loading } = useAuthContext();
 	useEffect(() => {
 		api.get(`/submissions?status=Pending`)
 			.then((res) => {
@@ -16,7 +16,7 @@ const PendingSubmissions = () => {
 			.catch((error) => {
 				toast.error(error.message);
 			});
-	}, [user]);
+	}, []);
 	return (
 		<main className="py-24">
 			<section className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto space-y-12">

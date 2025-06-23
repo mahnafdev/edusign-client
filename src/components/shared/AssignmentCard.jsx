@@ -41,7 +41,7 @@ const AssignmentCard = ({ children: assignment }) => {
 			<img
 				src={thumbnail}
 				alt="Thumbnail Image"
-				className="lg:col-span-2 w-full h-64 lg:h-full lg:rounded-l-3xl max-lg:rounded-t-3xl object-cover object-center"
+				className="lg:col-span-2 w-full h-64 lg:rounded-l-3xl max-lg:rounded-t-3xl object-cover object-center"
 			/>
 			{/* Other Information */}
 			<div className="lg:col-span-4 my-4 mx-6 lg:mr-12 space-y-4">

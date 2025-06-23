@@ -32,7 +32,7 @@ const PendingSubmissionCard = ({ children: submission }) => {
 				{/* Title */}
 				<h5 className="flex flex-col text-xl font-medium">
 					<span className="font-semibold">Assignment:</span>
-					{title}
+					{title ? title : null}
 				</h5>
 				{/* Total Marks */}
 				<p className="text-lg rounded-lg flex items-center gap-x-2">
@@ -50,7 +50,7 @@ const PendingSubmissionCard = ({ children: submission }) => {
 						className="fill-primary-background-dark dark:fill-primary-background-light"
 					/>
 					<span className="font-semibold">Examinee:</span>
-					{user.first_name + " " + user.last_name}
+					{user?.first_name + " " + user?.last_name}
 				</p>
 				{/* Actions */}
 				<div className="text-end">
