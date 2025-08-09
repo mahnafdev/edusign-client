@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import AssignmentCard from "../components/shared/AssignmentCard";
 import api from "../services/apiClient";
 import toast from "react-hot-toast";
-import Loader from "../components/shared/Loader";
+import { FallingLines } from "react-loader-spinner";
 
 const ViewAssignments = () => {
 	const [assignments, setAssignments] = useState([]);
@@ -43,17 +43,27 @@ const ViewAssignments = () => {
 			.catch((error) => toast.error(error.message));
 	};
 	useEffect(() => {
-		api.get("/assignments")
-			.then((res) => {
-				setAssignments(res.data);
-				setLoading(false);
-			})
-			.catch((error) => {
-				toast.error(error.message);
-				setLoading(false);
-			});
+		setTimeout(() => {
+			api.get("/assignments")
+				.then((res) => {
+					setAssignments(res.data);
+					setLoading(false);
+				})
+				.catch((error) => {
+					toast.error(error.message);
+					setLoading(false);
+				});
+		}, 500);
 	}, []);
-	return (
+	return loading ? (
+		<main className="h-[60vh] grid place-items-center">
+			<FallingLines
+				visible={true}
+				width="144"
+				color="var(--color-primary)"
+			/>
+		</main>
+	) : (
 		<main className="px-4 py-24">
 			<section className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto">
 				{/* Heading Text */}
@@ -144,16 +154,9 @@ const ViewAssignments = () => {
 				</div>
 				{/* Assignments List */}
 				<div className="flex flex-col gap-y-4">
-					{loading ? (
-						<Loader
-							type="assignmentCard"
-							count={3}
-						/>
-					) : (
-						assignments.map((assignment) => (
-							<AssignmentCard key={assignment._id}>{assignment}</AssignmentCard>
-						))
-					)}
+					{assignments.map((assignment) => (
+						<AssignmentCard key={assignment._id}>{assignment}</AssignmentCard>
+					))}
 				</div>
 			</section>
 		</main>

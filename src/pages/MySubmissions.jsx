@@ -3,23 +3,35 @@ import api from "../services/apiClient";
 import toast from "react-hot-toast";
 import SubmissionCard from "../components/shared/SubmissionCard";
 import useAuthContext from "../hooks/useAuthContext";
-import Loader from "../components/shared/Loader";
+import { FallingLines } from "react-loader-spinner";
 
 const MySubmissions = () => {
 	const [submissions, setSubmissions] = useState([]);
-	const { user, loading } = useAuthContext();
+	const [loading, setLoading] = useState(true);
+	const { user } = useAuthContext();
 	useEffect(() => {
 		if (user?.email) {
-			api.get(`/submissions?user_email=${user?.email}`)
-				.then((res) => {
-					setSubmissions(res.data);
-				})
-				.catch((error) => {
-					toast.error(error.message);
-				});
+			setTimeout(() => {
+				api.get(`/submissions?user_email=${user?.email}`)
+					.then((res) => {
+						setSubmissions(res.data);
+						setLoading(false);
+					})
+					.catch((error) => {
+						toast.error(error.message);
+					});
+			}, 500);
 		}
 	}, [user?.email]);
-	return (
+	return loading ? (
+		<main className="h-[60vh] grid place-items-center">
+			<FallingLines
+				visible={true}
+				width="144"
+				color="var(--color-primary)"
+			/>
+		</main>
+	) : (
 		<main className="py-24">
 			<section className="max-md:px-4 md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto space-y-12">
 				{/* Heading Text */}
@@ -27,16 +39,9 @@ const MySubmissions = () => {
 					My Assignment Submissions
 				</h2>
 				<div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-					{loading ? (
-						<Loader
-							type="mySubmissionCard"
-							count={3}
-						/>
-					) : (
-						submissions.map((submission) => (
-							<SubmissionCard key={submission._id}>{submission}</SubmissionCard>
-						))
-					)}
+					{submissions.map((submission) => (
+						<SubmissionCard key={submission._id}>{submission}</SubmissionCard>
+					))}
 				</div>
 			</section>
 		</main>
