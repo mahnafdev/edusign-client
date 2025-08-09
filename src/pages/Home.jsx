@@ -1,3 +1,4 @@
+import CallToAction from "../components/home/CallToAction";
 import Collaborators from "../components/home/Collaborators";
 import FAQ from "../components/home/FAQ";
 import Features from "../components/home/Features";
@@ -12,6 +13,7 @@ const Home = () => {
 			<Features />
 			<Stats />
 			<FAQ />
+			<CallToAction />
 		</main>
 	);
 };
