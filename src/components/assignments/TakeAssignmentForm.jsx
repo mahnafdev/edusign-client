@@ -42,7 +42,7 @@ const TakeAssignmentForm = () => {
 			</h3>
 			{/* Form */}
 			<form
-				className="w-sm lg:max-w-2/3 space-y-2"
+				className="w-sm md:w-lg lg:max-w-2/3 space-y-2"
 				onSubmit={handleSubmit}
 			>
 				<label className="flex flex-col gap-y-2 text-lg">

@@ -11,7 +11,7 @@ const TakeAssignment = () => {
 				{/* Lottie Animation */}
 				<Lottie
 					animationData={TakeAssignmentLottie}
-					className="w-sm lg:w-md"
+					className="w-sm md:w-md"
 				/>
 			</section>
 		</main>

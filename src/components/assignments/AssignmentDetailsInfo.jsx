@@ -48,7 +48,7 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 			</div>
 			{/* Key Info */}
 			<div className="max-w-4xl mx-auto p-8 flex flex-col items-center bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl text-xl">
-				<div className="grid lg:grid-cols-2 gap-x-20 gap-y-3 lg:gap-y-4">
+				<div className="grid md:grid-cols-2 gap-x-20 gap-y-3 lg:gap-y-4">
 					<p
 						className="flex items-center gap-x-2"
 						title="Maximum obtainable Marks of the Assignment"
