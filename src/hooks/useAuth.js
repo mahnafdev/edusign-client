@@ -9,6 +9,8 @@ import {
 } from "firebase/auth";
 import { auth } from "../../config/firebase.config";
 import { useEffect, useState } from "react";
+import api from "../services/apiClient";
+import toast from "react-hot-toast";
 
 const useAuth = () => {
 	const [user, setUser] = useState(null);
@@ -46,17 +48,18 @@ const useAuth = () => {
 		const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 			getUserProfile(currentUser);
 			setLoading(false);
-			// if (currentUser?.email) {
-			// 	const userData = { email: currentUser.email };
-			// 	api.post("/jwt", userData, {
-			// 		withCredentials: true,
-			// 	})
-			// 		.then((res) => {
-			// 			console.log(res.data);
-			// 		})
-			// 		.catch((error) => toast.error(error.message));
-			// }
+			if (currentUser?.email) {
+				const userData = { email: currentUser.email };
+				api.post("/jwt", userData)
+					.then((res) => {
+						console.log(res.data);
+					})
+					.catch((error) => toast.error(error.message));
+			}
 		});
+		return () => {
+			unsubscribe();
+		};
 	}, []);
 	return {
 		signUpUser,

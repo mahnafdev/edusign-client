@@ -9,14 +9,16 @@ const MySubmissions = () => {
 	const [submissions, setSubmissions] = useState([]);
 	const { user, loading } = useAuthContext();
 	useEffect(() => {
-		api.get(`/submissions?user_email=${user?.email}`)
-			.then((res) => {
-				setSubmissions(res.data);
-			})
-			.catch((error) => {
-				toast.error(error.message);
-			});
-	}, [user]);
+		if (user?.email) {
+			api.get(`/submissions?user_email=${user?.email}`)
+				.then((res) => {
+					setSubmissions(res.data);
+				})
+				.catch((error) => {
+					toast.error(error.message);
+				});
+		}
+	}, [user?.email]);
 	return (
 		<main className="py-24">
 			<section className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto space-y-12">

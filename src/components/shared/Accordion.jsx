@@ -7,7 +7,7 @@ const Accordion = ({
 }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
-		<div className="bg-primary-background-light dark:bg-primary-background-dark px-8 py-6 rounded-2xl space-y-6">
+		<div className="bg-primary-background-light dark:bg-primary-background-dark px-8 py-6 rounded-xl space-y-6">
 			{/* Title and Icon */}
 			<div
 				className="flex items-center justify-between cursor-pointer"

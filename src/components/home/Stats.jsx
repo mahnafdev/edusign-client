@@ -23,7 +23,7 @@ const Stats = () => {
 	return (
 		<motion.section
 			id="stats"
-			className="mt-40 py-20 lg:py-28 bg-[url(https://i.ibb.co/sJF64JXP/stats-bg.jpg)] bg-cover bg-center text-light"
+			className="mt-40 text-light"
 			initial={{
 				opacity: 0,
 			}}

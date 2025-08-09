@@ -7,6 +7,7 @@ import DefaultUserPhoto from "../assets/default-user-photo.png";
 import { FaLayerGroup } from "react-icons/fa6";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import api from "../services/apiClient";
 
 const Navbar = () => {
 	const { user, loading, signOutUser } = useAuthContext();
@@ -16,8 +17,12 @@ const Navbar = () => {
 	const handleLogout = () => {
 		signOutUser()
 			.then((userCredentials) => {
-				toast.success("Logged out successfully!");
-				navigate("/signin");
+				api.post("/users/logout")
+					.then((res) => {
+						toast.success("Logged out successfully!");
+						navigate("/signin");
+					})
+					.catch((error) => console.log(error));
 			})
 			.catch((error) => {
 				toast.error(error.message);
@@ -84,12 +89,6 @@ const Navbar = () => {
 								Pending Submissions
 							</NavLink>
 						) : null}
-						<NavLink
-							to="/blogs"
-							className="px-4 py-1 rounded-md hover:bg-primary/90 hover:text-light transition-colors duration-100"
-						>
-							Blogs
-						</NavLink>
 						{user ? (
 							<Button
 								customClasses="w-fit mt-4 ml-4 !py-1"

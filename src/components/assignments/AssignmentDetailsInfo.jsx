@@ -33,7 +33,7 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 					{/* Subject */}
 					<p
 						title="Subject"
-						className="px-3 py-1 bg-neutral-200/60 w-fit rounded-md font-medium text-lg text-neutral-800"
+						className="px-3 py-1 bg-neutral-200/60 dark:bg-neutral-800 w-fit rounded-md font-medium text-lg text-neutral-800 dark:text-neutral-200"
 					>
 						{subject}
 					</p>
@@ -47,7 +47,7 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 				</div>
 			</div>
 			{/* Key Info */}
-			<div className="max-w-4xl mx-auto p-8 flex flex-col items-center bg-neutral-100 border border-neutral-200 rounded-2xl text-xl">
+			<div className="max-w-4xl mx-auto p-8 flex flex-col items-center bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl text-xl">
 				<div className="grid grid-cols-2 gap-x-20 gap-y-4">
 					<p
 						className="flex items-center gap-x-2"
@@ -109,7 +109,7 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 				</div>
 			</div>
 			{/* Description */}
-			<div className="max-w-7xl mx-auto p-8 bg-neutral-100 border border-neutral-200 rounded-2xl text-lg">
+			<div className="max-w-7xl mx-auto p-8 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl text-lg">
 				<p className="font-semibold text-xl mb-1">Instructions:</p>
 				<p>{description}</p>
 			</div>

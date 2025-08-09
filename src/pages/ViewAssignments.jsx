@@ -9,6 +9,7 @@ const ViewAssignments = () => {
 	const [loading, setLoading] = useState(true);
 	const [difficulty, setDifficulty] = useState("");
 	const [subject, setSubject] = useState("");
+	const [sortByTotalMarks, setSortByTotalMarks] = useState("");
 	const [search, setSearch] = useState("");
 	// Handle Filtering
 	const handleDifficultyFilter = (e) => {
@@ -22,6 +23,14 @@ const ViewAssignments = () => {
 		const filterValue = e.target.value;
 		setSubject(filterValue);
 		api.get(filterValue ? `/assignments?subject=${filterValue}` : "/assignments")
+			.then((res) => setAssignments(res.data))
+			.catch((error) => toast.error(error.message));
+	};
+	// Handle Sorting
+	const handleSortByTotalMarks = (e) => {
+		const filterValue = e.target.value;
+		setSortByTotalMarks(filterValue);
+		api.get(filterValue ? `/assignments?sort=${filterValue}` : "/assignments")
 			.then((res) => setAssignments(res.data))
 			.catch((error) => toast.error(error.message));
 	};
@@ -51,9 +60,11 @@ const ViewAssignments = () => {
 				<h2 className="text-4xl font-bold text-center text-primary mb-8">
 					View Assignments
 				</h2>
-				{/* Filter & Search */}
+				{/* Filter, Sort, and Search */}
 				<div className="flex justify-between mb-12">
+					{/* Filter */}
 					<div className="flex items-center gap-x-3">
+						{/* By Difficulty */}
 						<label className="flex flex-col gap-y-1 text-lg">
 							<span className="font-medium text-xl">Difficulty</span>
 							<select
@@ -69,6 +80,7 @@ const ViewAssignments = () => {
 								<option value="Hard">Hard</option>
 							</select>
 						</label>
+						{/* By Subject */}
 						<label className="flex flex-col gap-y-1 text-lg">
 							<span className="font-medium text-xl">Subject</span>
 							<select
@@ -99,18 +111,36 @@ const ViewAssignments = () => {
 							</select>
 						</label>
 					</div>
-					<label className="flex flex-col gap-y-1 text-lg">
-						<span className="font-medium text-xl">🔍 Search</span>
-						<input
-							type="text"
-							name="search"
-							value={search}
-							onChange={handleSearch}
-							className="w-60 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
-							placeholder="Search Text..."
-							required
-						/>
-					</label>
+					<div className="flex items-center gap-x-4">
+						{/* Sort */}
+						<label className="flex flex-col gap-y-1 text-lg">
+							<span className="font-medium text-xl">Sort by Total Marks</span>
+							<select
+								name="sort_total_marks"
+								value={sortByTotalMarks}
+								onChange={handleSortByTotalMarks}
+								className="w-46 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-md"
+								required
+							>
+								<option value="">All</option>
+								<option value="asc">Ascending</option>
+								<option value="desc">Descending</option>
+							</select>
+						</label>
+						{/* Search */}
+						<label className="flex flex-col gap-y-1 text-lg">
+							<span className="font-medium text-xl">🔍 Search</span>
+							<input
+								type="text"
+								name="search"
+								value={search}
+								onChange={handleSearch}
+								className="w-60 bg-blue-50 dark:bg-[#19191f] px-2 py-1 border border-blue-300 dark:border-blue-800 focus:outline-none focus:border-primary-light dark:focus:border-primary-dark rounded-lg placeholder:text-neutral-400"
+								placeholder="Search Text..."
+								required
+							/>
+						</label>
+					</div>
 				</div>
 				{/* Assignments List */}
 				<div className="flex flex-col gap-y-6">
