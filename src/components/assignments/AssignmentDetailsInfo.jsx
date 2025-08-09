@@ -16,15 +16,15 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 	} = assignment;
 	const passing_marks = (total_marks / 10) * 8;
 	return (
-		<section className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto space-y-8 lg:space-y-12">
+		<section className="max-md:px-4 md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto space-y-8 lg:space-y-12">
 			{/* Basic Info */}
 			<div className="grid grid-cols-1 lg:grid-cols-8 gap-x-6 gap-y-2 items-center">
 				{/* Thumbnail Image */}
-				<div className="lg:col-span-3 rounded-l-3xl rounded-r-lg aspect-[2/1] overflow-hidden">
+				<div className="lg:col-span-3 rounded-2xl lg:rounded-l-3xl lg:rounded-r-lg aspect-[2/1] overflow-hidden">
 					<img
 						src={thumbnail}
 						alt="Thumbnail Image"
-						className="object-cover object-center rounded-l-3xl rounded-r-lg w-full h-80 lg:h-full hover:scale-105 transition-transform duration-300"
+						className="object-cover object-center rounded-2xl lg:rounded-l-3xl lg:rounded-r-lg w-full h-80 lg:h-full hover:scale-105 transition-transform duration-300"
 					/>
 				</div>
 				<div className="lg:col-span-5 space-y-3 lg:space-y-4 2xl:space-y-6">
@@ -48,7 +48,7 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 			</div>
 			{/* Key Info */}
 			<div className="max-w-4xl mx-auto p-8 flex flex-col items-center bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl text-xl">
-				<div className="grid grid-cols-2 gap-x-20 gap-y-4">
+				<div className="grid lg:grid-cols-2 gap-x-20 gap-y-3 lg:gap-y-4">
 					<p
 						className="flex items-center gap-x-2"
 						title="Maximum obtainable Marks of the Assignment"
@@ -109,9 +109,9 @@ const AssignmentDetailsInfo = ({ assignment }) => {
 				</div>
 			</div>
 			{/* Description */}
-			<div className="max-w-7xl mx-auto p-8 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl text-lg">
+			<div className="max-w-7xl mx-auto p-8 bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl md:text-lg">
 				<p className="font-semibold text-xl mb-1">Instructions:</p>
-				<p>{description}</p>
+				<p className="text-balance">{description}</p>
 			</div>
 		</section>
 	);

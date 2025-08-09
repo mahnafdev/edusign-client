@@ -44,7 +44,7 @@ const CreateAssignmentForm = () => {
 			.catch((error) => toast.error(error.message));
 	};
 	return (
-		<div className="lg:w-1/2">
+		<div className="w-full lg:w-1/2">
 			<h3 className="text-3xl font-bold text-primary-dark dark:text-primary-light mb-4">
 				Create An Assignment
 			</h3>

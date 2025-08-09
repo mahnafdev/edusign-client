@@ -60,14 +60,14 @@ const SignUpCard = () => {
 		}
 	};
 	return (
-		<div className="max-w-xl mx-auto p-8 bg-primary-background-light dark:bg-[#20202a] rounded-4xl shadow-lg shadow-dark/10 hover:shadow-dark/15 transition-shadow duration-100">
+		<div className="max-w-xl mx-auto p-6 md:p-8 bg-primary-background-light dark:bg-[#20202a] rounded-3xl md:rounded-4xl shadow-lg shadow-dark/10 hover:shadow-dark/15 transition-shadow duration-100">
 			{/* Heading */}
 			<h2 className="text-4xl font-bold text-center text-primary dark:text-primary-light mb-8">
 				Sign Up
 			</h2>
 			{/* Form */}
 			<form
-				className="max-w-5/6 mx-auto space-y-2"
+				className="md:max-w-5/6 mx-auto space-y-2"
 				onSubmit={handleSignUp}
 			>
 				<label className="flex flex-col gap-y-1 text-lg">

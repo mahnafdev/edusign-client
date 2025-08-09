@@ -27,7 +27,7 @@ const PendingSubmissionCard = ({ children: submission }) => {
 			});
 	}, []);
 	return (
-		<div className="bg-primary-background-light dark:bg-[#20202a] px-6 py-4 border border-neutral-300 dark:border-neutral-700 rounded-3xl space-y-8">
+		<div className="bg-primary-background-light dark:bg-[#20202a] px-6 py-4 border border-neutral-300 dark:border-neutral-700 rounded-2xl space-y-8">
 			<div className="space-y-3">
 				{/* Title */}
 				<h5 className="flex flex-col text-xl font-medium">

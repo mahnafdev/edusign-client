@@ -7,7 +7,7 @@ import Stats from "../components/home/Stats";
 
 const Home = () => {
 	return (
-		<main className="px-4 py-24">
+		<main className="max-lg:px-4 py-24">
 			<Hero />
 			<Collaborators />
 			<Features />

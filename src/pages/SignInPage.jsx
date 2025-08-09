@@ -2,7 +2,7 @@ import SignInCard from "../components/auth/SignInCard";
 
 const SignInPage = () => {
 	return (
-		<main className="py-24">
+		<main className="max-lg:px-4 py-24">
 			<SignInCard />
 		</main>
 	);
