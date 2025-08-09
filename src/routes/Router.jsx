@@ -14,6 +14,7 @@ import TakeAssignment from "../pages/TakeAssignment";
 import MySubmissions from "../pages/MySubmissions";
 import PendingSubmissions from "../pages/PendingSubmissions";
 import GiveMarks from "../pages/GiveMarks";
+import NotFoundError from "../pages/NotFoundError";
 
 const Router = createBrowserRouter([
 	{
@@ -81,6 +82,11 @@ const Router = createBrowserRouter([
 				Component: CreateAssignmentSuccess,
 			},
 		],
+	},
+	// 404 Not Found
+	{
+		path: "*",
+		Component: NotFoundError,
 	},
 ]);
 
