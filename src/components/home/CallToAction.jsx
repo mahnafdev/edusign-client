@@ -23,10 +23,10 @@ const CallToAction = () => {
 			}}
 		>
 			{/* Call To Action Card */}
-			<div className="md:max-w-lg lg:max-w-3xl 2xl:max-w-5xl mx-auto bg-neutral-900 border border-blue-300 dark:border-blue-900 p-8 rounded-3xl space-y-6">
+			<div className="md:max-w-lg lg:max-w-3xl 2xl:max-w-5xl mx-auto bg-neutral-900 border border-blue-300 dark:border-blue-900 p-8 rounded-3xl space-y-8 md:space-y-6">
 				<div className="space-y-3">
 					{/* Section Heading */}
-					<h3 className="text-3xl font-bold text-center">
+					<h3 className="text-2xl md:text-3xl font-bold text-center">
 						Ready to{" "}
 						<span className="text-primary-dark dark:text-primary-light">
 							start studying

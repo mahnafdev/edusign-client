@@ -49,7 +49,7 @@ const FAQ = () => {
 			{/* FAQs List */}
 			<div
 				id="faq-accordions"
-				className="space-y-4"
+				className="space-y-3 md:space-y-4"
 			>
 				{faqs.map((faq) => (
 					<Accordion

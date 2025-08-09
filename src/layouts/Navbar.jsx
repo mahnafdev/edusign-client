@@ -31,7 +31,7 @@ const Navbar = () => {
 	return (
 		<nav
 			id="navbar"
-			className="z-50 fixed top-0 left-0 right-0 py-2 bg-gradient-to-r from-light/70 to-light/70 dark:from-dark/80 dark:to-dark/80 backdrop-blur-md"
+			className="px-4 z-50 fixed top-0 left-0 right-0 py-2 bg-gradient-to-r from-light/70 to-light/70 dark:from-dark/80 dark:to-dark/80 backdrop-blur-md"
 		>
 			{/* All Navbar content */}
 			<div
@@ -154,9 +154,9 @@ const Navbar = () => {
 									{user?.fullName}
 								</span>
 								<div
-									className={`w-max bg-primary-background-light/95 border border-blue-300 dark:bg-[#20202a] dark:border-blue-700 absolute top-14 -left-4 ${
+									className={`w-max bg-primary-background-light/95 border border-blue-300 dark:bg-[#20202a] dark:border-blue-700 absolute top-14 right-0 lg:-left-4 ${
 										showProfileDropdown ? "flex flex-col" : "hidden"
-									} font-medium rounded-2xl py-2`}
+									} font-medium rounded-xl py-2`}
 								>
 									<NavLink
 										to="/assignments/create"

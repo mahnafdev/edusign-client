@@ -12,11 +12,11 @@ const Hero = () => {
 			{/* Hero Content (above) */}
 			<div
 				id="hero-content"
-				className="flex flex-col lg:flex-row items-center gap-y-4 lg:gap-x-16 2xl:gap-x-24 max-w-5/6 lg:max-w-full 2xl:max-w-5/6 mx-auto"
+				className="flex flex-col lg:flex-row items-center gap-y-4 lg:gap-x-16 2xl:gap-x-24 lg:max-w-full 2xl:max-w-5/6 mx-auto"
 			>
 				{/* Slogan Heading at the left-side */}
 				<motion.h1
-					className="text-5xl lg:text-4xl 2xl:text-5xl font-bold text-center lg:text-start leading-snug"
+					className="text-4xl 2xl:text-5xl text-balance font-bold text-center lg:text-start leading-snug"
 					initial={{
 						scale: 0.5,
 						opacity: 0,
@@ -52,7 +52,7 @@ const Hero = () => {
 				</motion.h1>
 				{/* Subtext & Call-To-Action at the right-side */}
 				<div className="lg:max-w-1/2 space-y-4">
-					<p className="text-center lg:text-start leading-relaxed">
+					<p className="text-center lg:text-start text-balance leading-relaxed">
 						Sign out from the exhausted education system. Sign in to the smarter one
 						by EduSign. Get smarter with our Assignment-based group-study platform.
 					</p>
@@ -74,7 +74,7 @@ const Hero = () => {
 				<motion.img
 					src={HeroImage}
 					alt="Hero Image"
-					className="w-full h-full object-cover object-center rounded-tr-[5rem] rounded-tl-2xl rounded-br-3xl rounded-bl-[4rem]"
+					className="w-full h-full object-cover object-center rounded-tr-[3.5rem] md:rounded-tr-[5rem] rounded-tl-[1.25rem] md:rounded-tl-2xl rounded-br-[2rem] md:rounded-br-3xl rounded-bl-[2.75rem] md:rounded-bl-[4rem]"
 					animate={{
 						y: [0, -20, 20, 0],
 					}}

@@ -7,13 +7,15 @@ const Accordion = ({
 }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
-		<div className="bg-primary-background-light dark:bg-primary-background-dark px-8 py-6 rounded-xl space-y-6">
+		<div className="bg-primary-background-light dark:bg-primary-background-dark p-5 md:px-8 md:py-6 rounded-xl space-y-6">
 			{/* Title and Icon */}
 			<div
-				className="flex items-center justify-between cursor-pointer"
+				className="grid grid-cols-12 items-center cursor-pointer"
 				onClick={() => setIsOpen(!isOpen)}
 			>
-				<h4 className="text-2xl font-semibold">{title}</h4>
+				<h4 className="col-span-11 text-xl md:text-2xl font-semibold text-balance">
+					{title}
+				</h4>
 				<FaPlus
 					size={20}
 					className={`fill-primary dark:fill-primary-light ${

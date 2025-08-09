@@ -54,16 +54,16 @@ const ViewAssignments = () => {
 			});
 	}, []);
 	return (
-		<main className="py-24">
+		<main className="px-4 py-24">
 			<section className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-8xl mx-auto">
 				{/* Heading Text */}
 				<h2 className="text-4xl font-bold text-center text-primary mb-8">
 					View Assignments
 				</h2>
 				{/* Filter, Sort, and Search */}
-				<div className="flex justify-between mb-12">
+				<div className="flex flex-wrap justify-between mb-12 gap-4">
 					{/* Filter */}
-					<div className="flex items-center gap-x-3">
+					<div className="flex flex-wrap items-center gap-x-3 gap-y-2">
 						{/* By Difficulty */}
 						<label className="flex flex-col gap-y-1 text-lg">
 							<span className="font-medium text-xl">Difficulty</span>
@@ -111,7 +111,7 @@ const ViewAssignments = () => {
 							</select>
 						</label>
 					</div>
-					<div className="flex items-center gap-x-4">
+					<div className="flex flex-wrap items-center gap-x-4 gap-y-2">
 						{/* Sort */}
 						<label className="flex flex-col gap-y-1 text-lg">
 							<span className="font-medium text-xl">Sort by Total Marks</span>
@@ -143,7 +143,7 @@ const ViewAssignments = () => {
 					</div>
 				</div>
 				{/* Assignments List */}
-				<div className="flex flex-col gap-y-6">
+				<div className="flex flex-col gap-y-4">
 					{loading ? (
 						<Loader
 							type="assignmentCard"

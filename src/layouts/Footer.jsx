@@ -20,7 +20,7 @@ const Footer = () => {
 			{/* Footer Content */}
 			<div
 				id="footer-content"
-				className="md:max-w-2xl lg:max-w-6xl 2xl:max-w-8xl mx-auto py-24 flex flex-col lg:flex-row justify-between gap-y-6"
+				className="px-4 py-12 md:max-w-2xl lg:max-w-6xl 2xl:max-w-8xl mx-auto lg:py-24 flex flex-col lg:flex-row justify-between gap-y-6"
 			>
 				{/* Logo and Slogan */}
 				<div className="space-y-4">

@@ -14,7 +14,7 @@ const StatCard = ({ count = 0, title = "" }) => {
 					suffix="+"
 				/>
 			</h2>
-			<p className="text-lg text-neutral-200 font-medium">{title}</p>
+			<p className="text-lg text-neutral-200 font-medium text-center">{title}</p>
 		</div>
 	);
 };

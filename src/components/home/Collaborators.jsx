@@ -63,13 +63,13 @@ const Collaborators = () => {
 			}}
 		>
 			{/* Section Heading */}
-			<h3 className="text-3xl font-bold text-center lg:text-start">
+			<h3 className="text-3xl font-bold text-center lg:text-start text-balance">
 				We{" "}
 				<span className="text-primary-dark dark:text-primary-light">Collaborate</span>{" "}
 				with <span className="text-primary-dark dark:text-primary-light">10+</span>{" "}
 				Leading Institutions and Companies
 			</h3>
-			<div className="grid grid-cols-3 place-items-center gap-x-4 gap-y-8">
+			<div className="grid grid-cols-2 md:grid-cols-3 place-items-center gap-x-4 gap-y-6 md:gap-y-8">
 				{logos.map((logo) => (
 					<a
 						key={logo.alt}
