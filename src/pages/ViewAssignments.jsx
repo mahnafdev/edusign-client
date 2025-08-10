@@ -153,7 +153,7 @@ const ViewAssignments = () => {
 					</div>
 				</div>
 				{/* Assignments List */}
-				<div className="flex flex-col gap-y-4">
+				<div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
 					{assignments.map((assignment) => (
 						<AssignmentCard key={assignment._id}>{assignment}</AssignmentCard>
 					))}

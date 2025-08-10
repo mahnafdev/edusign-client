@@ -48,7 +48,7 @@ const Collaborators = () => {
 	return (
 		<motion.section
 			id="collaborators"
-			className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-7xl mx-auto mt-16 grid lg:grid-cols-2 place-items-center gap-x-8 gap-y-10"
+			className="md:max-w-2xl lg:max-w-5xl 2xl:max-w-7xl mx-auto mt-40 grid lg:grid-cols-2 place-items-center gap-x-8 gap-y-10"
 			initial={{
 				scale: 0.4,
 				opacity: 0,

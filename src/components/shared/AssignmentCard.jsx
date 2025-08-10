@@ -48,15 +48,15 @@ const AssignmentCard = ({ children: assignment }) => {
 		} else toast.error("You can't delete this assignment since you haven't created it.");
 	};
 	return (
-		<div className="bg-primary-background-light dark:bg-[#20202a] border border-neutral-300 dark:border-neutral-700 rounded-3xl grid grid-cols-1 lg:grid-cols-6 items-center gap-x-8 gap-y-2">
+		<div className="bg-primary-background-light dark:bg-[#20202a] border border-neutral-300 dark:border-neutral-700 rounded-3xl space-y-4">
 			{/* Thumbnail Image */}
 			<img
 				src={thumbnail}
 				alt="Thumbnail Image"
-				className="lg:col-span-2 w-full h-64 lg:rounded-l-3xl max-lg:rounded-t-3xl object-cover object-center"
+				className="w-full h-64 lg:rounded-t-3xl max-lg:rounded-t-2xl object-cover object-center"
 			/>
 			{/* Other Information */}
-			<div className="lg:col-span-4 my-4 mx-6 lg:mr-12 space-y-4">
+			<div className="px-4 pb-4 space-y-3">
 				{/* Title */}
 				<h3 className="text-2xl 2xl:text-3xl font-semibold">{title}</h3>
 				<div className="flex items-center gap-x-2 text-lg">
@@ -86,7 +86,7 @@ const AssignmentCard = ({ children: assignment }) => {
 				{/* Shorted Description */}
 				<p className="text-lg line-clamp-1">{description}</p>
 				{/* Actions */}
-				<div className="w-fit mt-6 px-1 flex items-center mx-auto gap-x-1 border border-dark/20 dark:border-light/20 rounded-lg">
+				<div className="w-fit mt-4 px-1 flex items-center mx-auto gap-x-1 border border-dark/20 dark:border-light/20 rounded-lg">
 					<NavLink
 						to={`/assignments/details/${_id}`}
 						target="_blank"
