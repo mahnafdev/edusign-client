@@ -1,9 +1,9 @@
 import {
 	FaFacebookF,
 	FaGithubAlt,
+	FaLinkedinIn,
 	FaLocationDot,
 	FaMessage,
-	FaPaperPlane,
 	FaPhone,
 	FaYoutube,
 } from "react-icons/fa6";
@@ -49,11 +49,11 @@ const Footer = () => {
 						</li>
 						<li className="flex items-center gap-x-2">
 							<FaMessage />
-							riaurko@gmail.com
+							mahnafdev@gmail.com
 						</li>
 						<li className="flex items-center gap-x-2">
 							<FaPhone />
-							880-1717-549249
+							880-1710-243940
 						</li>
 					</ul>
 				</div>
@@ -123,7 +123,8 @@ const Footer = () => {
 					</h5>
 					<div className="flex gap-x-2">
 						<a
-							href="https://github.com/riaurko"
+							href="https://github.com/mahnafdev"
+							target="_blank"
 							title="Follow - GitHub"
 						>
 							<Button customClasses="!px-3 aspect-square">
@@ -131,7 +132,17 @@ const Footer = () => {
 							</Button>
 						</a>
 						<a
-							href="https://youtube.com/@riaurko"
+							href="https://www.linkedin.com/in/mahnafdev"
+							target="_blank"
+							title="Connect - LinkedIn"
+						>
+							<Button customClasses="!px-3 aspect-square">
+								<FaLinkedinIn size={20} />
+							</Button>
+						</a>
+						<a
+							href="https://youtube.com/@ninjaquasar"
+							target="_blank"
 							title="Subscribe - YouTube"
 						>
 							<Button customClasses="!px-3 aspect-square">
@@ -139,19 +150,12 @@ const Footer = () => {
 							</Button>
 						</a>
 						<a
-							href="https://facebook.com/riaurko"
+							href="https://facebook.com/mahnafdev"
+							target="_blank"
 							title="Follow - Facebook"
 						>
 							<Button customClasses="!px-3 aspect-square">
 								<FaFacebookF size={20} />
-							</Button>
-						</a>
-						<a
-							href="https://t.me/riaurko"
-							title="Message - Telegram"
-						>
-							<Button customClasses="!px-3 aspect-square">
-								<FaPaperPlane size={20} />
 							</Button>
 						</a>
 					</div>

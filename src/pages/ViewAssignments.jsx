@@ -43,17 +43,15 @@ const ViewAssignments = () => {
 			.catch((error) => toast.error(error.message));
 	};
 	useEffect(() => {
-		setTimeout(() => {
-			api.get("/assignments")
-				.then((res) => {
-					setAssignments(res.data);
-					setLoading(false);
-				})
-				.catch((error) => {
-					toast.error(error.message);
-					setLoading(false);
-				});
-		}, 500);
+		api.get("/assignments")
+			.then((res) => {
+				setAssignments(res.data);
+				setLoading(false);
+			})
+			.catch((error) => {
+				toast.error(error.message);
+				setLoading(false);
+			});
 	}, []);
 	return loading ? (
 		<main className="h-[60vh] grid place-items-center">

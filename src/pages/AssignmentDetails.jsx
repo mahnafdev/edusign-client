@@ -10,14 +10,12 @@ const AssignmentDetails = () => {
 	const [loading, setLoading] = useState(true);
 	const { id } = useParams();
 	useEffect(() => {
-		setTimeout(() => {
-			api.get(`/assignments/${id}`)
-				.then((res) => {
-					setAssignment(res.data);
-					setLoading(false);
-				})
-				.catch((error) => toast.error(error.message));
-		}, 500);
+		api.get(`/assignments/${id}`)
+			.then((res) => {
+				setAssignment(res.data);
+				setLoading(false);
+			})
+			.catch((error) => toast.error(error.message));
 	}, []);
 	return loading ? (
 		<main className="h-[60vh] grid place-items-center">

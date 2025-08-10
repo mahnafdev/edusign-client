@@ -8,9 +8,9 @@ const NotFoundError = () => {
 		<main className="h-screen flex flex-col justify-center items-center">
 			<Lottie
 				animationData={NotFoundLottie}
-				className="mx-auto w-sm aspect-square"
+				className="mx-auto w-sm md:w-lg aspect-square"
 			/>
-			<h3 className="text-3xl font-bold mb-8">
+			<h3 className="text-3xl font-bold text-center mb-8">
 				Oops! Looks like you're distracted while studying.
 			</h3>
 			<Link

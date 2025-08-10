@@ -47,7 +47,7 @@ const SignUpCard = () => {
 								// Upon success
 								.then((res) => {
 									toast.success("Created your account successfully!");
-									navigate("/success/account-create");
+									navigate("/");
 								})
 								// Upon error
 								.catch((error) => toast.error(error.message));

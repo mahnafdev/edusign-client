@@ -11,16 +11,14 @@ const MySubmissions = () => {
 	const { user } = useAuthContext();
 	useEffect(() => {
 		if (user?.email) {
-			setTimeout(() => {
-				api.get(`/submissions?user_email=${user?.email}`)
-					.then((res) => {
-						setSubmissions(res.data);
-						setLoading(false);
-					})
-					.catch((error) => {
-						toast.error(error.message);
-					});
-			}, 500);
+			api.get(`/submissions?user_email=${user?.email}`)
+				.then((res) => {
+					setSubmissions(res.data);
+					setLoading(false);
+				})
+				.catch((error) => {
+					toast.error(error.message);
+				});
 		}
 	}, [user?.email]);
 	return loading ? (

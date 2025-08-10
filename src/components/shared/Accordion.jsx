@@ -10,10 +10,10 @@ const Accordion = ({
 		<div className="bg-primary-background-light dark:bg-primary-background-dark p-5 md:px-8 md:py-6 rounded-xl space-y-6">
 			{/* Title and Icon */}
 			<div
-				className="grid grid-cols-12 items-center cursor-pointer"
+				className="grid grid-cols-12 xl:grid-cols-32 items-center cursor-pointer"
 				onClick={() => setIsOpen(!isOpen)}
 			>
-				<h4 className="col-span-11 text-xl md:text-2xl font-semibold text-balance">
+				<h4 className="col-span-11 xl:col-span-31 text-xl md:text-2xl font-semibold text-balance">
 					{title}
 				</h4>
 				<FaPlus

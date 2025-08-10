@@ -20,7 +20,7 @@ const SignInCard = () => {
 			// Upon success
 			.then((userCredentials) => {
 				toast.success("Logged in to your account successfully!");
-				navigate("/success/authenticate");
+				navigate("/");
 			})
 			// Upon error
 			.catch((error) => {

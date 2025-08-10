@@ -11,7 +11,7 @@ const GoogleSignIn = () => {
 		signInUserWithGoogle()
 			.then((userCredentials) => {
 				toast.success("Successfully logged in to your account with Google!");
-				navigate("/success/authenticate");
+				navigate("/");
 			})
 			.catch((error) => {
 				toast.error(error.message);

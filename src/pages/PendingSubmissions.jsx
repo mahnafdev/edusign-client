@@ -9,16 +9,14 @@ const PendingSubmissions = () => {
 	const [submissions, setSubmissions] = useState([]);
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
-		setTimeout(() => {
-			api.get(`/submissions?status=Pending`)
-				.then((res) => {
-					setSubmissions(res.data);
-					setLoading(false);
-				})
-				.catch((error) => {
-					toast.error(error.message);
-				});
-		}, 500);
+		api.get(`/submissions?status=Pending`)
+			.then((res) => {
+				setSubmissions(res.data);
+				setLoading(false);
+			})
+			.catch((error) => {
+				toast.error(error.message);
+			});
 	}, []);
 	return loading ? (
 		<main className="h-[60vh] grid place-items-center">
