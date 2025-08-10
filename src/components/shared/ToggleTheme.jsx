@@ -10,10 +10,13 @@ const ToggleTheme = ({ buttonClasses = "" }) => {
 		document.documentElement.setAttribute("data-theme", newTheme);
 	};
 	useEffect(() => {
-		const savedTheme = localStorage.getItem("theme");
-		if (savedTheme) {
-			setTheme(savedTheme);
-			document.documentElement.setAttribute("data-theme", savedTheme);
+		const doesPreferDarkTheme = window.matchMedia("(prefers-color-scheme: dark)");
+		if (doesPreferDarkTheme.matches) {
+			setTheme("dark");
+			document.documentElement.setAttribute("data-theme", "dark");
+		} else {
+			setTheme("light");
+			document.documentElement.setAttribute("data-theme", "light");
 		}
 	}, []);
 	const ThemeIcon = theme === "light" ? FaMoon : FaSun;
